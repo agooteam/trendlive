@@ -54,4 +54,20 @@ class User extends Model implements AuthenticatableContract{
         return $user; // возвращаем пользователя
     }
 
+    public static function set_new_password($email,$new_password){//установка нового пароля если есть пользователь с таким E-Mail
+        $user = User::where('email','=',$email)->first();
+        if($user instanceof Model){
+            $user -> password = Hash::make($new_password);//устанавливаем новый пароль
+            $user -> save();//сохраняем
+            return true;
+        }
+        else return false;
+    }
+
+
+    public static function get_user_for_email($email){// получние модели пользователя (только для существующего E-mail)
+        $user = User::where('email','=',$email)->first();//получаем модель по E-Mail
+        return $user; //возвращаем модель
+    }
+
 }

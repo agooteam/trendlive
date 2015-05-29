@@ -8,9 +8,5 @@ abstract class Controller extends BaseController {
 
 	use DispatchesCommands, ValidatesRequests;
 
-    public function check_auth($to){
-        if(!Auth::check()) return redirect($to);//редирект на профиль
-        return redirect('/');
-    }
 
 }

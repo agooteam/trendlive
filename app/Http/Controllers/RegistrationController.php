@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class RegistrationController extends Controller {
 
 	public function index(){//Страница регистрации
-        $this->check_auth('/profile');
+        if(Auth::check()) return redirect('/profile');
         return view('Registration');
 	}
 
