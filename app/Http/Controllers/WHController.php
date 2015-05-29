@@ -5,9 +5,9 @@ use TrendLive\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Collective\Remote\RemoteFacade as SSH;
 
-class WebhooksController extends Controller {
+class WHController extends Controller {
 
-    public function gihub_pull(){
+    public function pull(){
         $branch = $_ENV['GIT_BRANCH'];
         SSH::into('production')->run(array(
             'cd ~',
