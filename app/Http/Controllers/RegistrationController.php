@@ -34,7 +34,7 @@ class RegistrationController extends Controller {
             Mail::send('emails.registration', $to_mail, function($message) use ($user){//отправляем письмо
                 $message->to($user->email,'Новый пользователь')->subject('Регистрация на сайте  TrendLive.ru');//указываем адресата и тему письма
             });
-            return redirect('/registration')->with('success','Ты успешно зарегистрировался. На указанный E-Mail выслана ссылка для подтверждения адреса электронной почты');//возвращаем пользователя на страницу регистрации и уведомляем об успешной регистрации
+            return redirect('/registration')->with('success','Вы успешно зарегистрировались. На указанный E-Mail выслана ссылка для подтверждения адреса электронной почты');//возвращаем пользователя на страницу регистрации и уведомляем об успешной регистрации
         }
         else{//иначе плохо, произошла ошибка
             return redirect('/registration') -> withErrors('Ошибка регистрации, попробуйте заново.');//Сообщаем об ошибках
@@ -43,8 +43,8 @@ class RegistrationController extends Controller {
 
     public function activation($hash){
         $result = User::activation($hash);
-        if($result) return redirect('/profile/login')->with('success','Адрес электронной почты подтвержден. Для входа в профиль используй данные указанные при регистрации.');
-        else return redirect('/profile/login') -> withErrors('Ты уже подтвердил адрес электронной почты');//Сообщаем об ошибках;
+        if($result) return redirect('/profile/login')->with('success','Адрес электронной почты подтвержден. Для входа в профиль используйте данные указанные при регистрации.');
+        else return redirect('/profile/login') -> withErrors('Вы уже подтвердили адрес электронной почты');//Сообщаем об ошибках;
     }
 
 }

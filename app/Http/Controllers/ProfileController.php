@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use TrendLive\User;
 use Illuminate\Support\Str;
 use TrendLive\Http\Requests\RecoveryPasswordFormRequest;
+use TrendLive\Http\Requests\ChangePasswordFormRequest;
 use TrendLive\Http\Requests\LoginFormRequest;
 use Illuminate\Database\Eloquent\Model;
 
@@ -41,7 +42,7 @@ class ProfileController extends Controller {
             Mail::send('emails.recovery_password', $to_mail, function($message) use ($user){//отправляем письмо
                 $message->to($user->email, 'Пользователь')->subject('Восстановление пароля');//указываем адресата и тему письма
             });
-            return redirect('/recovery_password')->with('success','Ты успешно восстановил пароль. Новый пароль выслан на E-mail.');//сообщение об успехе
+            return redirect('/recovery_password')->with('success','Вы успешно восстановили пароль. Новый пароль выслан на ваш E-mail.');//сообщение об успехе
         }
         else{//если пользователя не существует
             return redirect('/recovery_password')->withErrors('Пользователя с таким E-mail не существует.');//сообщение об ошибке
@@ -60,7 +61,7 @@ class ProfileController extends Controller {
                 return redirect('/profile');
             }
             else{//авторизация не удалась
-                return view('Login')->withErrors('Введенные данные не верны, попробуй заново.');
+                return view('Login')->withErrors('Введенные данные не верны, попробуйте заново.');
             }
         }
         else{
@@ -74,4 +75,27 @@ class ProfileController extends Controller {
         return redirect('/profile/login');
     }
 
+    public function get_change_password(){
+        if(!Auth::check()) return redirect('/profile/login');
+        return view('Change_password');
+    }
+
+    public static function post_change_password(ChangePasswordFormRequest $request){//смена пароля обработка
+        $data = $request->all();//получаем все данные
+        $user = Auth::user();//получение модели авторизованного пользователя
+        $result = User::set_new_password($user->email,$data['password']);//установка нового пароля
+        if($result){//если пароль успешно установлен
+            $to_mail = [//формируем массив данных
+                'password' => $data['password'],
+                'email' => $user->email
+            ];
+            Mail::send('emails.change_password', $to_mail, function($message) use ($user){//отправляем письмо
+                $message->to($user->email, 'Пользователь')->subject('Смена пароля');//указываем адресата и тему письма
+            });
+            return redirect('/profile/change_password')->with('success','Вы успешно сменили пароль. Данные для входа в профиль отправлены на ваш E-mail .');//сообщение об успехе
+        }
+        else{//если пользователя не существует
+            return redirect('/profile/change_password')->withErrors('В данный момент невозможно сменить пароль. Попробуйте позже.');//сообщение об успехе
+        }
+    }
 }

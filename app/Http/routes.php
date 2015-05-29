@@ -15,11 +15,8 @@ Route::get('/profile/change_password','ProfileController@get_change_password');/
 /********************** POST запросы ****************************************************/
 Route::post('/registration', 'RegistrationController@registration_user');//Регистриция пользователя
 Route::post('/recovery_password','ProfileController@post_recovery_password');//Восстановление пароля
-<<<<<<< HEAD
 Route::post('/profile/login','ProfileController@post_login');//Страница авторизации пользователя
-=======
 Route::post('/profile/change_password','ProfileController@post_change_password');//Изменение пароля
->>>>>>> dev/3
 Route::post('/deploy','WHController@pull');//github Webhooks
 /****************************************************************************************/
 // TEST END COMMENT
