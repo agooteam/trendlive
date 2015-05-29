@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>TrendLive - Мои подборки</title>
-    <link rel="stylesheet" type="text/css" href="style/my_collection.css">
+    <link rel="stylesheet" type="text/css" href="/css/my_collection.css">
     <link href='http://fonts.googleapis.com/css?family=Scada:400italic,700italic,400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body>
