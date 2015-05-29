@@ -16,5 +16,5 @@ Route::post('/recovery_password','ProfileController@post_recovery_password');//Ð
 /****************************************************************************************/
 
 
-Route::post('/deploy','WHController@pull');//github Webhooks
+Route::post('/deploy','Controller@pull');//github Webhooks
 //Comment
