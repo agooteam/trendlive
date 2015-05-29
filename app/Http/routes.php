@@ -13,8 +13,5 @@ Route::get('/recovery_password','ProfileController@get_recovery_password');//В�
 /********************** POST запросы ****************************************************/
 Route::post('/registration', 'RegistrationController@registration_user');//Регистриция пользователя
 Route::post('/recovery_password','ProfileController@post_recovery_password');//Восстановление пароля
-/****************************************************************************************/
-
-
 Route::post('/deploy','WHController@pull');//github Webhooks
-//Comment
+/****************************************************************************************/

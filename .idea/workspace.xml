@@ -35,13 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WHController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WHController.php">
+      <file leaf-file-name="routes.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="5" selection-start="506" selection-end="506" vertical-scroll-proportion="0.3384075" vertical-offset="0" max-vertical-offset="854">
-              <folding>
-                <element signature="e#45#73#0" expanded="true" />
-              </folding>
+            <state line="17" column="0" selection-start="1141" selection-end="1141" vertical-scroll-proportion="0.3384075" vertical-offset="0" max-vertical-offset="854">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -172,8 +170,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WebhooksController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WHController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -846,13 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="38" selection-start="1120" selection-end="1120" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="310" selection-end="310" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="408">
@@ -866,6 +857,13 @@
           <folding>
             <element signature="e#45#73#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="1141" selection-end="1141" vertical-scroll-proportion="0.3384075" vertical-offset="0" max-vertical-offset="854">
+          <folding />
         </state>
       </provider>
     </entry>
