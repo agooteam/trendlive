@@ -46,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebhooksController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WebhooksController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WebhooksController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="43" selection-start="418" selection-end="418" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="425">
+            <state line="13" column="38" selection-start="413" selection-end="413" vertical-scroll-proportion="0.25113636" vertical-offset="0" max-vertical-offset="880">
               <folding>
                 <element signature="e#45#73#0" expanded="true" />
               </folding>
@@ -57,10 +57,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".env" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="313" selection-end="330" vertical-scroll-proportion="0.35651213" vertical-offset="0" max-vertical-offset="906">
+            <state line="19" column="0" selection-start="313" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
               <folding />
             </state>
           </provider>
@@ -838,19 +838,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WebhooksController.php">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="43" selection-start="418" selection-end="418" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="425">
-          <folding>
-            <element signature="e#45#73#0" expanded="true" />
-          </folding>
+        <state line="19" column="0" selection-start="313" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WebhooksController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="313" selection-end="330" vertical-scroll-proportion="0.35651213" vertical-offset="0" max-vertical-offset="906">
-          <folding />
+        <state line="13" column="38" selection-start="413" selection-end="413" vertical-scroll-proportion="0.25113636" vertical-offset="0" max-vertical-offset="880">
+          <folding>
+            <element signature="e#45#73#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

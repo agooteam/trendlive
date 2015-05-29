@@ -11,7 +11,7 @@ class WebhooksController extends Controller {
         $branch = $_ENV['GIT_BRANCH'];
         SSH::into('production')->run(array(
             'cd ~',
-            'git pull origin test/'.$branch
+            'git pull origin '.$branch
         ), function($line) {
             echo $line.PHP_EOL; // outputs server feedback
         });
