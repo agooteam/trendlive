@@ -7,10 +7,11 @@ use Collective\Remote\RemoteFacade as SSH;
 
 class WebhooksController extends Controller {
 
-    public function gihub_pull(){
+    public function github_pull(){
+        $branch = $_ENV['GIT_BRANCH'];
         SSH::into('production')->run(array(
             'cd ~',
-            'git pull origin master'
+            'git pull origin test/'.$branch
         ), function($line) {
             echo $line.PHP_EOL; // outputs server feedback
         });
