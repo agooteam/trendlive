@@ -11,6 +11,7 @@ class WHController extends Controller {
         $branch = $_ENV['GIT_BRANCH'];
         SSH::into('production')->run(array(
             'cd ~',
+            'git checkout '.$branch,
             'git pull origin '.$branch
         ), function($line) {
             echo $line.PHP_EOL; // outputs server feedback
