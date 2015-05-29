@@ -9,12 +9,17 @@ Route::get('/profile','ProfileController@index');//Стартовая стран
 Route::get('/profile/login','ProfileController@get_login');//Страница авторизации пользователя
 Route::get('/profile/logout','ProfileController@logout');//Выход пользователя
 Route::get('/recovery_password','ProfileController@get_recovery_password');//Восстановление пароля
+Route::get('/profile/change_password','ProfileController@get_change_password');//Изменение пароля
 /****************************************************************************************/
 
 /********************** POST запросы ****************************************************/
 Route::post('/registration', 'RegistrationController@registration_user');//Регистриция пользователя
 Route::post('/recovery_password','ProfileController@post_recovery_password');//Восстановление пароля
+<<<<<<< HEAD
 Route::post('/profile/login','ProfileController@post_login');//Страница авторизации пользователя
+=======
+Route::post('/profile/change_password','ProfileController@post_change_password');//Изменение пароля
+>>>>>>> dev/3
 Route::post('/deploy','WHController@pull');//github Webhooks
 /****************************************************************************************/
 // TEST END COMMENT
