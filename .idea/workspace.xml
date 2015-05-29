@@ -10,6 +10,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/Recovery_password/template.blade.php" />
       <change type="DELETED" beforePath="C:\xampp\htdocs\trendlive\TrendLive" afterPath="" />
       <change type="MOVED" beforePath="C:\xampp\htdocs\trendlive\app\Http\Controllers\WebhooksController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/WHController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/User.php" afterPath="$PROJECT_DIR$/app/User.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
     </list>
@@ -34,22 +35,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <file leaf-file-name="WHController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WHController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="35" selection-start="1105" selection-end="1117" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="425">
-              <folding />
+            <state line="17" column="5" selection-start="506" selection-end="506" vertical-scroll-proportion="0.3384075" vertical-offset="0" max-vertical-offset="854">
+              <folding>
+                <element signature="e#45#73#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WHController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WHController.php">
+      <file leaf-file-name="Controller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="20" selection-start="251" selection-end="251" vertical-scroll-proportion="0.17915691" vertical-offset="0" max-vertical-offset="854">
-              <folding>
-                <element signature="e#45#73#0" expanded="true" />
-              </folding>
+            <state line="9" column="0" selection-start="310" selection-end="310" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="255">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,7 +161,6 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RegistrationController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/RecoveryPasswordFormRequest.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/resources/views/Recovery_password/footer.blade.php" />
@@ -170,9 +170,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WebhooksController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WHController.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
       </list>
     </option>
   </component>
@@ -535,7 +536,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="6" width="1929" height="1034" extended-state="1" />
+    <frame x="-8" y="6" width="1929" height="1034" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -741,15 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="310" selection-end="310" vertical-scroll-proportion="0.17386363" vertical-offset="0" max-vertical-offset="880">
-          <folding>
-            <element signature="e#45#94#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/RecoveryPasswordFormRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="5" selection-start="375" selection-end="375" vertical-scroll-proportion="0.3090909" vertical-offset="0" max-vertical-offset="880">
@@ -847,13 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="35" selection-start="1105" selection-end="1117" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/Login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="57" selection-start="959" selection-end="976" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="816">
@@ -861,9 +846,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="38" selection-start="1120" selection-end="1120" vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="310" selection-end="310" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WHController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="20" selection-start="251" selection-end="251" vertical-scroll-proportion="0.17915691" vertical-offset="0" max-vertical-offset="854">
+        <state line="17" column="5" selection-start="506" selection-end="506" vertical-scroll-proportion="0.3384075" vertical-offset="0" max-vertical-offset="854">
           <folding>
             <element signature="e#45#73#0" expanded="true" />
           </folding>
