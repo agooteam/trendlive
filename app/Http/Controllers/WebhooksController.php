@@ -7,7 +7,7 @@ use Collective\Remote\RemoteFacade as SSH;
 
 class WebhooksController extends Controller {
 
-    public function github_pull(){
+    public function gihub_pull(){
         $branch = $_ENV['GIT_BRANCH'];
         SSH::into('production')->run(array(
             'cd ~',

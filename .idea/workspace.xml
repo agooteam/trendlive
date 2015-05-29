@@ -40,7 +40,7 @@
       <file leaf-file-name="routes.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="9" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.3284091" vertical-offset="0" max-vertical-offset="880">
+            <state line="18" column="72" selection-start="1154" selection-end="1154" vertical-scroll-proportion="0.35831383" vertical-offset="0" max-vertical-offset="854">
               <folding />
             </state>
           </provider>
@@ -58,7 +58,7 @@
       <file leaf-file-name="WebhooksController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WebhooksController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="1" selection-start="522" selection-end="522" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="425">
+            <state line="19" column="1" selection-start="521" selection-end="521" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="425">
               <folding>
                 <element signature="e#45#73#0" expanded="true" />
               </folding>
@@ -66,10 +66,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="IndexController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/IndexController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="28" selection-start="255" selection-end="255" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="340">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name=".env" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="313" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+            <state line="19" column="10" selection-start="313" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
               <folding />
             </state>
           </provider>
@@ -134,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/resources/views/Index/template.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Registration/header.blade.php" />
@@ -164,6 +172,7 @@
         <option value="$PROJECT_DIR$/resources/views/emails/recovery_password.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WebhooksController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
@@ -172,9 +181,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="1" />
+    <option name="y" value="6" />
     <option name="width" value="1929" />
-    <option name="height" value="1039" />
+    <option name="height" value="1034" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -528,7 +537,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="1" width="1929" height="1039" extended-state="0" />
+    <frame x="-8" y="6" width="1929" height="1034" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -734,13 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="28" selection-start="255" selection-end="255" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="340">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="310" selection-end="310" vertical-scroll-proportion="0.17386363" vertical-offset="0" max-vertical-offset="880">
@@ -842,14 +844,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="313" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+        <state line="19" column="10" selection-start="313" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="28" selection-start="255" selection-end="255" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="340">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WebhooksController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="1" selection-start="522" selection-end="522" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="425">
+        <state line="19" column="1" selection-start="521" selection-end="521" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="425">
           <folding>
             <element signature="e#45#73#0" expanded="true" />
           </folding>
@@ -858,7 +867,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="9" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.3284091" vertical-offset="0" max-vertical-offset="880">
+        <state line="18" column="72" selection-start="1154" selection-end="1154" vertical-scroll-proportion="0.35831383" vertical-offset="0" max-vertical-offset="854">
           <folding />
         </state>
       </provider>
