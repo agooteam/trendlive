@@ -15,3 +15,4 @@ Route::post('/registration', 'RegistrationController@registration_user');//Ре�
 Route::post('/recovery_password','ProfileController@post_recovery_password');//Восстановление пароля
 Route::post('/deploy','WHController@pull');//github Webhooks
 /****************************************************************************************/
+// TEST END COMMENT
