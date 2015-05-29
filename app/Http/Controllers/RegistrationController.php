@@ -32,7 +32,7 @@ class RegistrationController extends Controller {
                 'url' => $url
             ];
             Mail::send('emails.registration', $to_mail, function($message) use ($user){//отправляем письмо
-                $message->to($user->email,'Новый пользователь')->subject('Регистрация на сайте TrendLive.ru');//указываем адресата и тему письма
+                $message->to($user->email,'Новый пользователь')->subject('Регистрация на сайте  TrendLive.ru');//указываем адресата и тему письма
             });
             return redirect('/registration')->with('success','Ты успешно зарегистрировался. На указанный E-Mail выслана ссылка для подтверждения адреса электронной почты');//возвращаем пользователя на страницу регистрации и уведомляем об успешной регистрации
         }

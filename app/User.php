@@ -2,10 +2,9 @@
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Hash;
+use Auth;
 
 class User extends Model implements AuthenticatableContract{
 
@@ -44,13 +43,11 @@ class User extends Model implements AuthenticatableContract{
     }
 
     public static function registration($data){ // регистрация нового пользователя
-
         $user = User::create([ //создаем пользователя
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'activation_code' => md5($data['email'])
         ]);
-
         return $user; // возвращаем пользователя
     }
 
@@ -68,6 +65,15 @@ class User extends Model implements AuthenticatableContract{
     public static function get_user_for_email($email){// получние модели пользователя (только для существующего E-mail)
         $user = User::where('email','=',$email)->first();//получаем модель по E-Mail
         return $user; //возвращаем модель
+    }
+
+    public  static function check_active($email){
+        $user = User::where('email','=',$email)->first();
+        if($user instanceof Model){//если получили модель пользователя
+            if($user->is_active) return true;
+            else return false;
+        }
+        else  return false;
     }
 
 }

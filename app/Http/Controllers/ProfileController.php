@@ -8,11 +8,14 @@ use Illuminate\Support\Facades\Mail;
 use TrendLive\User;
 use Illuminate\Support\Str;
 use TrendLive\Http\Requests\RecoveryPasswordFormRequest;
+use TrendLive\Http\Requests\LoginFormRequest;
+use Illuminate\Database\Eloquent\Model;
 
 class ProfileController extends Controller {
 
     public function index(){//Стартовая страница профиля
         if(!Auth::check()) return redirect('/profile/login');
+        return view('Profile');
     }
 
     public function get_login(){//страница авторизации
@@ -43,6 +46,32 @@ class ProfileController extends Controller {
         else{//если пользователя не существует
             return redirect('/recovery_password')->withErrors('Пользователя с таким E-mail не существует.');//сообщение об ошибке
         }
+    }
+
+    public  function post_login(LoginFormRequest $request){//Авторизация метод post
+        $data = $request->all();
+        $email = $data['email'];//получаем email
+        $active = User::check_active($email);//проверяем статус активации
+        if($active){
+            $remember = false; // не запоминать пользователя
+            if(isset($data['remember'])) $remember = true; // запоминать пользователя
+            $user = User::login($data,$remember);//авторизируемся
+            if($user instanceof Model){//пользователь авторизировался
+                return redirect('/profile');
+            }
+            else{//авторизация не удалась
+                return view('Login')->withErrors('Введенные данные не верны, попробуй заново.');
+            }
+        }
+        else{
+            return view('Login')->withErrors('Для входа в личный кабинет необходимо подтвердить адрес электронной почты');
+        }
+
+    }
+
+    public function logout(){//выход из приложения
+        if(Auth::check()) Auth::logout();
+        return redirect('/profile/login');
     }
 
 }
