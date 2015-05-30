@@ -11,6 +11,7 @@ Route::get('/profile/logout','ProfileController@logout');//Выход польз
 Route::get('/profile/change_password','ProfileController@get_change_password');//Изменение пароля
 Route::get('/profile/new_collection','CollectionsController@get_new_collection');//Страница создания новой подборки
 Route::get('/recovery_password','ProfileController@get_recovery_password');//Восстановление пароля
+Route::get('/registration', 'RegistrationController@index');//Страница регистрации
 
 
 /********************** POST запросы ****************************************************/
