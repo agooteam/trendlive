@@ -98,4 +98,5 @@ class ProfileController extends Controller {
             return redirect('/profile/change_password')->withErrors('В данный момент невозможно сменить пароль. Попробуйте позже.');//сообщение об успехе
         }
     }
+
 }
