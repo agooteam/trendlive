@@ -16,16 +16,6 @@ class WHController extends Controller {
         ), function($line) {
             echo $line.PHP_EOL; // outputs server feedback
         });
-        //На один раз
-        SSH::into('production')->run(array(
-            'cd ~',            
-            'git checkout '.$branch,
-            'git pull origin '.$branch,
-            'cd /home/m/mikhaisw/test.mikhaisw.bget.ru/app/Http/Controllers/',
-            'git checkout -- CollectionController.php'
-        ), function($line) {
-            echo $line.PHP_EOL; // outputs server feedback
-        });
     }
 
 }
