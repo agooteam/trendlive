@@ -115,7 +115,7 @@ class CollectionsController extends Controller {
             $extension = $data['image']->getClientOriginalExtension();
             $image_name = 'image_collection_'.$collection_id.'.'.mb_strtolower($extension);
             $data['image']-> move($UploadPathImage, $image_name);
-            File::copy($UploadPathImagePreview.$image_name,$UploadPathImagePreview.$image_name);//копируем файл
+            File::copy($UploadPathImage.$image_name,$UploadPathImagePreview.$image_name);//копируем файл
             Image::make(sprintf(public_path().'/assets/collections/%s', $image_name))->resize(180, 224)->save();//меняем размер
             Image::make(sprintf(public_path().'/assets/collections/preview/%s', $image_name))->resize(200, 185)->save();//меняем рамер
             $i_url = $url.'assets/collections/'.$image_name;
