@@ -20,8 +20,6 @@ Route::post('/deploy','WHController@pull');//github Webhooks
 Route::post('/recovery_password','ProfileController@post_recovery_password');//Восстановление пароля
 Route::post('/registration', 'RegistrationController@registration_user');//Регистриция пользователя
 Route::post('/profile/change_password','ProfileController@post_change_password');//Изменение пароля
-/* это точно правильно?*/
-Route::post('/profile/change_password','CollectionsController@get_new_collection');//Изменение пароля
 Route::post('/profile/collection/edit/{collection_id?}','CollectionsController@post_collection_edit');//Сохранение подборки
 Route::post('/profile/collection/delete/{collection_id?}','CollectionsController@delete_collection');//Сохранение подборки
 Route::post('/profile/login','ProfileController@post_login');//Страница авторизации пользователя
