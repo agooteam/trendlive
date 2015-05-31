@@ -31,7 +31,7 @@
                     </div>
                     @endif
                     <div class="kurs_btn_save" id="save_button">Cохранить</div>
-                    <div class="kurs_btn_delete" id="delete_button" onclick="location.href='#';">Удалить</div>
+                    <div class="kurs_btn_delete" id="delete_button" >Удалить</div>
                 </div>
                 <div class="create_right">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -54,10 +54,8 @@
                         @endif
                         @foreach($videos as $video)
                             <div class="lesson">
-                                <div class="lesson_name">{{$video->video_name}}</div>
-                                <div class="lesson_btn_edit" onclick="location.href='/profile/video/edit/{{$video->id}}';"></div>
-                                <input type="hidden" class="course_id" value="1" />
-                                <input type="hidden" class="video_id" value="2" />
+                                <div class="lesson_name">{{ $video-> video_name}}</div>
+                                <div class="lesson_btn_edit" onclick="location.href='/profile/video/edit/{{ $video-> id }}';"></div>
                             </div>
                         @endforeach
                         <div class="add_lesson" onclick="location.href='/profile/new_video/{{$collection->id}}';">Добавить видео</div>

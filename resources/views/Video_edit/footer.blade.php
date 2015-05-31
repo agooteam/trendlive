@@ -24,9 +24,9 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 <div id="modal_form">
-    <div class="modal_txt">Вы действительно хотите удалить подборку?</div>
+    <div class="modal_txt">Вы действительно хотите удалить видео?</div>
     <div class="modal_btns">
         <div class="modal_btn_yes" onclick="">Да</div>
         <div id="modal_close">Нет</div>
@@ -34,7 +34,7 @@
 </div>
 <div id="overlay"></div>
 
-<form id="DeleteCollectionForm" method="POST" action="/profile/collection/delete/{{$collection -> id}}">
+<form id="DeleteCollectionForm" method="POST" action="/profile/video/delete/{{$video -> id}}">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 </form>
 
@@ -44,16 +44,7 @@
         $( "#EditFormRequest" ).submit();
     });
 </script>
-<script type="text/javascript" src="/js/mosaic.1.0.1.js"></script>
-<script type="text/javascript">
 
-    jQuery(function($){
-        $('.bar').mosaic({
-            animation	:	'slide'
-        });
-    });
-
-</script>
 <script type="text/javascript">
     $(document).ready(function() {
         var id_modal = "#modal_form";
@@ -89,6 +80,7 @@
         })
     });
 </script>
+
 
 </body>
 </html>

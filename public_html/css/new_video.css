@@ -248,7 +248,7 @@ body {
 	font-size:18px;
     text-decoration:underline; 
 	cursor:pointer;
-	margin:20px 0 30px 110px;
+	float: left;
 }
 
 .btn:hover {
@@ -265,7 +265,7 @@ body {
 	width:440px;
 	height:160px;
 	background:url(../img/err_bg.png) no-repeat;
-	margin:0 0 30px 0;
+	margin:30px 0 30px 0;
 }
 
 .err_head {
@@ -298,7 +298,7 @@ body {
 	width:440px;
 	height:70px;
 	background:url(../img/ura_bg.png) no-repeat;
-	margin:0 0 30px 0;
+	margin:30px 0 30px 0;
 }
 
 .ura_head {
@@ -474,7 +474,7 @@ body {
 	width: 350px; 
 	height: 160px; /* Размеры должны быть фиксированы */
 	border-radius: 5px;
-	border: 3px #000 solid;
+	border: 1px #000 solid;
 	background:url(../img/bg.png) repeat;
 	position: fixed; /* чтобы окно было в видимой зоне в любом месте */
 	top: 45%; /* отступаем сверху 45%, остальные 5% подвинет скрипт */
@@ -558,4 +558,31 @@ body {
 	left: 0; /* сверху и слева 0, обязательные свойства! */
 	cursor: pointer;
 	display: none; /* в обычном состоянии её нет) */
+}
+
+.kurs_btn_delete {
+    cursor:pointer;
+    position:relative;
+    display:block;
+    float:left;
+    width:100px;
+    height:32px;
+    background:url(../img/kurs_btn_delete.png) no-repeat;
+    background-color:#dddddd;
+    color:#616161;
+    font-size:18px;
+    margin:0 0 10px 0;
+    padding:8px 0 0 40px;
+}
+
+.kurs_btn_delete:hover {
+    color:#7c7c7c;
+    background:url(../img/kurs_btn_delete_hover.png) no-repeat;
+    background-color:#dddddd;
+}
+
+.kurs_btn_delete:active {
+    color:#fff;
+    background:url(../img/kurs_btn_delete_active.png) no-repeat;
+    background-color:#57c5a0;
 }

@@ -11,7 +11,7 @@ Route::get('/profile/login','ProfileController@get_login');//Страница а
 Route::get('/profile/logout','ProfileController@logout');//Выход пользователя
 Route::get('/profile/new_collection','CollectionsController@get_new_collection');//Страница создания новой подборки
 Route::get('/profile/new_video/{collection_id?}','CollectionsController@get_new_video');//Страница добавления видео
-Route::get('/profile/video/edit/{collection_id?}','CollectionsController@get_edit_video');//Страница редактирования видео
+Route::get('/profile/video/edit/{video_id?}','CollectionsController@get_edit_video');//Страница редактирования видео
 Route::get('/recovery_password','ProfileController@get_recovery_password');//Восстановление пароля
 Route::get('/registration', 'RegistrationController@index');//Страница регистрации
 
@@ -21,6 +21,9 @@ Route::post('/recovery_password','ProfileController@post_recovery_password');//�
 Route::post('/registration', 'RegistrationController@registration_user');//Регистриция пользователя
 Route::post('/profile/change_password','ProfileController@post_change_password');//Изменение пароля
 Route::post('/profile/collection/edit/{collection_id?}','CollectionsController@post_collection_edit');//Сохранение подборки
-Route::post('/profile/collection/delete/{collection_id?}','CollectionsController@delete_collection');//Сохранение подборки
+Route::post('/profile/collection/delete/{collection_id?}','CollectionsController@delete_collection');//Удаление подборки
 Route::post('/profile/login','ProfileController@post_login');//Страница авторизации пользователя
 Route::post('/profile/new_collection','CollectionsController@post_new_collection');//Создания новой подборки
+Route::post('/profile/new_video/{collection_id?}','CollectionsController@post_new_video');//Страница добавления видео
+Route::post('/profile/video/edit/{video_id?}','CollectionsController@post_edit_video');//Страница редактирования видео
+Route::post('/profile/video/delete/{video_id?}','CollectionsController@delete_video');//Удаление видео

@@ -4,6 +4,7 @@ use TrendLive\Http\Requests;
 use TrendLive\Http\Controllers\Controller;
 use Auth;
 use TrendLive\Http\Requests\SaveCollectionFormRequest;
+use TrendLive\Http\Requests\SaveVideoFormRequest;
 use Carbon\Carbon;
 use File;
 use Image;
@@ -84,8 +85,14 @@ class CollectionsController extends Controller {
             Collection::update_collection($collection_id,$data);//обновляем данные курса
         }
         $categories = Category::all();
-        $videos = Video::where('collection_id',$collection_id)->get();
-        if(count($videos) > 0 ) $videos = $videos[0];
+        $videos = Video::get_video($collection_id);
+        $i = 1;
+        foreach($videos as $video){
+            $video-> video_name = mb_strimwidth($video-> video_name, 0, 40, "...");
+            $video-> video_name = $i.'. '.$video-> video_name;
+            $i++;
+        }
+        reset($videos);
         $collection = Collection::get_collection($collection_id);
         return  view('Collection_edit',compact('categories','collection','videos'));
     }
@@ -151,7 +158,7 @@ class CollectionsController extends Controller {
             }
             Collection::delete_collection($collection_id);
         }
-        return redirect('profile');
+        return redirect('/profile');
     }
 
     public function get_new_video($collection_id = null){
@@ -162,6 +169,67 @@ class CollectionsController extends Controller {
         $user_id = Auth::user()-> id;// id пользователя
         if($collection -> user_id != $user_id) return redirect('/profile');
         return view('New_video',compact('collection_id'));
+    }
+
+    public function post_new_video($collection_id = null,SaveVideoFormRequest $request){
+        if(!Auth::check()) return redirect('/profile/login');
+        if($collection_id == null) return  redirect('/profile');
+        $collection = Collection::get_collection($collection_id);
+        $user_id = Auth::user()-> id;
+        if($collection -> user_id != $user_id) return redirect('/profile');
+        $input = $request->all();
+        $data = [
+            'video_name' => $input['video_name'],
+            'youtube_link' => $input['youtube_link'],
+            'collection_id' => $collection_id
+        ];
+        $video = Video::save_video($data);
+        Collection::update_collection($collection_id,['count_videos' => $collection-> count_videos + 1]);
+        return redirect('profile/collection/edit/'.$collection_id);
+    }
+
+    public function get_edit_video($video_id = null){
+        if(!Auth::check()) return redirect('/profile/login');
+        if($video_id == null) return  redirect('/profile');
+        $video = Video::get_video_by_id($video_id);
+        if(!$video instanceof Video) return redirect('/profile');
+        $collection_id = $video-> collection_id;
+        $collection = Collection::get_collection($collection_id);
+        $user_id = Auth::user()-> id;
+        if($collection -> user_id != $user_id) return redirect('/profile');
+        return view('Video_edit',compact('video','collection_id'));
+    }
+
+    public function post_edit_video($video_id = null,SaveVideoFormRequest $request){
+        if(!Auth::check()) return redirect('/profile/login');
+        if($video_id == null) return  redirect('/profile');
+        $video = Video::get_video_by_id($video_id);
+        if(!$video instanceof Video) return redirect('/profile');
+        $collection_id = $video-> collection_id;
+        $collection = Collection::get_collection($collection_id);
+        $user_id = Auth::user()-> id;
+        if($collection -> user_id != $user_id) return redirect('/profile');
+        $input = $request->all();
+        $data = [
+            'video_name' => $input['video_name'],
+            'youtube_link' => $input['youtube_link']
+        ];
+        Video::update_video($video_id,$data);
+        return redirect('profile/video/edit/'.$video_id)->with('success','Данные успешно сохранены');
+    }
+
+    public function delete_video($video_id){
+        if(!Auth::check()) return redirect('/profile/login');
+        if($video_id == null) return  redirect('/profile');
+        $video = Video::get_video_by_id($video_id);
+        if(!$video instanceof Video) return redirect('/profile');
+        $collection_id = $video-> collection_id;
+        $collection = Collection::get_collection($collection_id);
+        $user_id = Auth::user()-> id;
+        if($collection -> user_id != $user_id) return redirect('/profile');
+        Video::delete_video($video_id);
+        Collection::update_collection($collection_id,['count_videos' => $collection-> count_videos - 1]);
+        return redirect('/profile/collection/edit/'.$collection_id);
     }
 
 }
