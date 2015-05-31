@@ -11,6 +11,11 @@ class Collection extends Model {
         return $collection -> id;
     }
 
+    public static function get_collection($collection_id){
+        $collection = Collection::where('id',$collection_id)->firstOrFail();
+        return $collection;
+    }
+
     public static  function update_collection($collection_id,$data){
         Collection::where('id',$collection_id)->update($data);
     }
