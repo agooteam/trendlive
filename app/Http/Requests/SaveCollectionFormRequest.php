@@ -11,7 +11,7 @@ class SaveCollectionFormRequest extends Request {
         return [
             'description' => 'required|max:400',
             'collection_name' => 'required|max:150',
-            'image' => 'mimes:jpeg,jpg,png| size: 5120',
+            'image' => 'mimes:jpeg,jpg,png| max: 5120',
             'category' => 'required|numeric',
         ];
     }
