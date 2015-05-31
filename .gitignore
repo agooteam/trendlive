@@ -4,3 +4,5 @@
 /.idea
 /.ssh
 /.cache
+/storage/framework/views
+/public_html/assets

@@ -8,7 +8,7 @@
         </div>
         <div class="left_menu">
             <div class="left_menu_header">Профиль</div>
-            <div class="left_menu_punkt_active" onclick="location.href='/profile';">Мои подборки</div>
+            <div class="left_menu_punkt" onclick="location.href='/profile';">Мои подборки</div>
             <div class="left_menu_punkt" onclick="location.href='/profile/change_password';">Изменить пароль</div>
             <div class="left_menu_punkt_end" onclick="location.href='/profile/logout';">Выход</div>
         </div>
