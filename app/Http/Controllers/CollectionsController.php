@@ -75,8 +75,8 @@ class CollectionsController extends Controller {
             $image_name_new = 'image_collection_'.$collection -> id.$time.mb_strtolower($extension);//Новое имя
             File::copy($UploadPathTemp.$image_name,$UploadPathImage.$image_name_new);//копируем файл
             File::copy($UploadPathTemp.$image_name,$UploadPathImagePreview.$image_name_new);//копируем файл
-            Image::make(sprintf($UploadPathImage.'%s', $image_name_new))->resize(180, 224)->save();//меняем размер
-            Image::make(sprintf($UploadPathImagePreview.'%s', $image_name_new))->resize(200, 185)->save();//меняем рамер
+            Image::make(sprintf($UploadPathImage.'%s', $image_name_new))->resize(180, 224);//меняем размер
+            Image::make(sprintf($UploadPathImagePreview.'%s', $image_name_new))->resize(200, 185);//меняем рамер
             File::delete($UploadPathTemp.$image_name);//удаляем временное изображение
             $data = [//подготавливаем массив для обновления
                 'image_url' => $url.'assets/collections/'.$image_name_new,
@@ -119,8 +119,8 @@ class CollectionsController extends Controller {
             $image_name = 'image_collection_'.$collection_id.$time.'.'.mb_strtolower($extension);
             $data['image']-> move($UploadPathImage, $image_name);
             File::copy($UploadPathImage.$image_name,$UploadPathImagePreview.$image_name);//копируем файл
-            Image::make(sprintf(public_path().'/assets/collections/%s', $image_name))->resize(180, 224)->save();//меняем размер
-            Image::make(sprintf(public_path().'/assets/collections/preview/%s', $image_name))->resize(200, 185)->save();//меняем рамер
+            Image::make(sprintf(public_path().'/assets/collections/%s', $image_name))->resize(180, 224);//меняем размер
+            Image::make(sprintf(public_path().'/assets/collections/preview/%s', $image_name))->resize(200, 185);//меняем рамер
             $i_url = $url.'assets/collections/'.$image_name;
             $i_purl = $url.'assets/collections/preview/'.$image_name;
         }
