@@ -11,7 +11,6 @@ class WHController extends Controller {
         $branch = $_ENV['GIT_BRANCH'];
         SSH::into('production')->run(array(
             'cd ~',
-            'git checkout master', // Чтобы восстановить удаленные файлы на сервере!
             'git checkout '.$branch,
             'git pull origin '.$branch
         ), function($line) {
