@@ -129,7 +129,6 @@ class CollectionsController extends Controller {
             'image_preview_url' => $i_purl
         ];
         Collection::update_collection($collection_id,$data);
-        $collection = Collection::get_collection($collection_id);
         return redirect('profile/collection/edit/'.$collection_id)->with('success','Данные успешно сохранены');
     }
 
