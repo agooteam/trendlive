@@ -37,7 +37,7 @@ class CollectionsController extends Controller {
             $time = Carbon::now();
             $time->toDateTimeString();
             $user_id = Auth::user()->id;
-            $image_name = 'image_'.md5($user_id.'_'.$time).'.'.$extension;
+            $image_name = 'image_'.md5($user_id.'_'.$time).'.'.mb_strtolower($extension);
             $data['image']-> move($UploadPathImage, $image_name);
             $image_url = $url.'assets/temp/'.$image_name;
         }
@@ -70,7 +70,7 @@ class CollectionsController extends Controller {
             $UploadPathTemp = public_path().'/assets/temp/';//путь темповой папки
             $UploadPathImage = public_path().'/assets/collections/';//путь папки избражения
             $UploadPathImagePreview = public_path().'/assets/collections/preview/';//путь папки превью
-            $image_name_new = 'image_collection_'.$collection -> id.$extension;//Новое имя
+            $image_name_new = 'image_collection_'.$collection -> id.mb_strtolower($extension);//Новое имя
             File::copy($UploadPathTemp.$image_name,$UploadPathImage.$image_name_new);//копируем файл
             File::copy($UploadPathTemp.$image_name,$UploadPathImagePreview.$image_name_new);//копируем файл
             Image::make(sprintf($UploadPathImage.'%s', $image_name_new))->resize(180, 224)->save();//меняем размер
@@ -113,7 +113,7 @@ class CollectionsController extends Controller {
             $UploadPathImage = public_path().'/assets/collections/';
             $UploadPathImagePreview = public_path().'/assets/collections/preview/';//временный
             $extension = $data['image']->getClientOriginalExtension();
-            $image_name = 'image_collection_'.$collection_id.'.'.$extension;
+            $image_name = 'image_collection_'.$collection_id.'.'.mb_strtolower($extension);
             $data['image']-> move($UploadPathImage, $image_name);
             File::copy($UploadPathImagePreview.$image_name,$UploadPathImagePreview.$image_name);//копируем файл
             Image::make(sprintf(public_path().'/assets/collections/%s', $image_name))->resize(180, 224)->save();//меняем размер
