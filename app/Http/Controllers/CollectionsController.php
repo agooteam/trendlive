@@ -58,7 +58,6 @@ class CollectionsController extends Controller {
         $collection = Collection::get_collection($collection_id);
         if(!$collection instanceof Collection) return redirect('/profile');
         $user_id = Auth::user()-> id;// id пользователя
-
         if($collection -> user_id != $user_id) return redirect('/profile');
         if($collection-> image_url != null && $collection-> image_preview_url == null){//курс впервые редактируется
             $temp_url = $collection-> image_url;//получение временного пути
@@ -153,6 +152,16 @@ class CollectionsController extends Controller {
             Collection::delete_collection($collection_id);
         }
         return redirect('profile');
+    }
+
+    public function get_new_video($collection_id = null){
+        if(!Auth::check()) return redirect('/profile/login');
+        if($collection_id == null) return  redirect('/profile');
+        $collection = Collection::get_collection($collection_id);
+        if(!$collection instanceof Collection) return redirect('/profile');
+        $user_id = Auth::user()-> id;// id пользователя
+        if($collection -> user_id != $user_id) return redirect('/profile');
+        return view('New_video',compact('collection_id'));
     }
 
 }
