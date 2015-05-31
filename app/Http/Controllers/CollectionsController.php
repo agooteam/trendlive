@@ -72,7 +72,7 @@ class CollectionsController extends Controller {
             $UploadPathImage = public_path().'/assets/collections/';//путь папки избражения
             $UploadPathImagePreview = public_path().'/assets/collections/preview/';//путь папки превью
             $time = Carbon::now()->format('Y_m_d_h_m_s');
-            $image_name_new = 'image_collection_'.$collection -> id.$time.mb_strtolower($extension);//Новое имя
+            $image_name_new = 'image_collection_'.$collection -> id.'_'.$time.mb_strtolower($extension);//Новое имя
             File::copy($UploadPathTemp.$image_name,$UploadPathImage.$image_name_new);//копируем файл
             File::copy($UploadPathTemp.$image_name,$UploadPathImagePreview.$image_name_new);//копируем файл
             Image::make(sprintf($UploadPathImage.'%s', $image_name_new))->resize(180, 224)->save();//меняем размер
@@ -116,7 +116,7 @@ class CollectionsController extends Controller {
             $UploadPathImagePreview = public_path().'/assets/collections/preview/';//временный
             $extension = $data['image']->getClientOriginalExtension();
             $time = Carbon::now()->format('Y_m_d_h_m_s');
-            $image_name = 'image_collection_'.$collection_id.$time.'.'.mb_strtolower($extension);
+            $image_name = 'image_collection_'.$collection_id.'_'.$time.'.'.mb_strtolower($extension);
             $data['image']-> move($UploadPathImage, $image_name);
             File::copy($UploadPathImage.$image_name,$UploadPathImagePreview.$image_name);//копируем файл
             Image::make(sprintf(public_path().'/assets/collections/%s', $image_name))->resize(180, 224)->save();//меняем размер
@@ -140,6 +140,16 @@ class CollectionsController extends Controller {
         $collection = Collection::where('id',$collection_id)->get();
         $user_collection = $collection[0]-> user_id;
         if($user_collection == $user_id && $collection[0] instanceof Collection){
+            $image_url = $collection[0] -> image_url;
+            $image_preview_url = $collection[0] -> image_preview_url;
+            if($image_url != null && $image_preview_url != null){
+                $delete_pos = strrpos($image_url, 'image');
+                $delete_image_name = substr($image_url,$delete_pos,strlen($image_url));
+                $UploadPathImage = public_path().'/assets/collections/';
+                $UploadPathImagePreview = public_path().'/assets/collections/preview/';
+                File::delete($UploadPathImage.$delete_image_name);
+                File::delete($UploadPathImagePreview.$delete_image_name);
+            }
             Collection::delete_collection($collection_id);
         }
         return redirect('profile');
