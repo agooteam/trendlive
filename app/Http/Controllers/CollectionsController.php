@@ -55,8 +55,8 @@ class CollectionsController extends Controller {
     public function get_collection_edit($collection_id = null){
         if(!Auth::check()) return redirect('/profile/login');
         if($collection_id == null) return  redirect('/profile');
-        $collection = Collection::where('id',$collection_id)->get();
-        if(count($collection) > 0 ) $collection = $collection[0];
+        $collection = Collection::get_collection($collection_id);
+        if(!$collection instanceof Collection) return redirect('/profile');
         $user_id = Auth::user()-> id;// id пользователя
         if($collection -> user_id != $user_id) return redirect('/profile');
         if($collection-> image_url != null && $collection-> image_preview_url == null){//курс впервые редактируется
@@ -85,8 +85,7 @@ class CollectionsController extends Controller {
         $categories = Category::all();
         $videos = Video::where('collection_id',$collection_id)->get();
         if(count($videos) > 0 ) $videos = $videos[0];
-        $collection = Collection::where('id',$collection_id)->get();
-        if(count($collection) > 0 ) $collection = $collection[0];
+        $collection = Collection::get_collection($collection_id);
         return  view('Collection_edit',compact('categories','collection','videos'));
     }
 
