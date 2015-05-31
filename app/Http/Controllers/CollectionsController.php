@@ -58,6 +58,7 @@ class CollectionsController extends Controller {
         $collection = Collection::get_collection($collection_id);
         if(!$collection instanceof Collection) return redirect('/profile');
         $user_id = Auth::user()-> id;// id пользователя
+
         if($collection -> user_id != $user_id) return redirect('/profile');
         if($collection-> image_url != null && $collection-> image_preview_url == null){//курс впервые редактируется
             $temp_url = $collection-> image_url;//получение временного пути
@@ -70,11 +71,12 @@ class CollectionsController extends Controller {
             $UploadPathTemp = public_path().'/assets/temp/';//путь темповой папки
             $UploadPathImage = public_path().'/assets/collections/';//путь папки избражения
             $UploadPathImagePreview = public_path().'/assets/collections/preview/';//путь папки превью
-            $image_name_new = 'image_collection_'.$collection -> id.mb_strtolower($extension);//Новое имя
+            $time = Carbon::now()->format('Y_m_d_h_m_s');
+            $image_name_new = 'image_collection_'.$collection -> id.$time.mb_strtolower($extension);//Новое имя
             File::copy($UploadPathTemp.$image_name,$UploadPathImage.$image_name_new);//копируем файл
             File::copy($UploadPathTemp.$image_name,$UploadPathImagePreview.$image_name_new);//копируем файл
-            Image::make(sprintf($UploadPathImage.'%s', $image_name_new))->resize(180, 224)->greyscale();;//меняем размер
-            Image::make(sprintf($UploadPathImagePreview.'%s', $image_name_new))->resize(200, 185)->greyscale();//меняем рамер
+            Image::make(sprintf($UploadPathImage.'%s', $image_name_new))->resize(180, 224)->save();//меняем размер
+            Image::make(sprintf($UploadPathImagePreview.'%s', $image_name_new))->resize(200, 185)->save();//меняем рамер
             File::delete($UploadPathTemp.$image_name);//удаляем временное изображение
             $data = [//подготавливаем массив для обновления
                 'image_url' => $url.'assets/collections/'.$image_name_new,
@@ -113,11 +115,12 @@ class CollectionsController extends Controller {
             $UploadPathImage = public_path().'/assets/collections/';
             $UploadPathImagePreview = public_path().'/assets/collections/preview/';//временный
             $extension = $data['image']->getClientOriginalExtension();
-            $image_name = 'image_collection_'.$collection_id.'.'.mb_strtolower($extension);
+            $time = Carbon::now()->format('Y_m_d_h_m_s');
+            $image_name = 'image_collection_'.$collection_id.$time.'.'.mb_strtolower($extension);
             $data['image']-> move($UploadPathImage, $image_name);
             File::copy($UploadPathImage.$image_name,$UploadPathImagePreview.$image_name);//копируем файл
-            Image::make(sprintf(public_path().'/assets/collections/%s', $image_name))->resize(180, 224)->greyscale();//меняем размер
-            Image::make(sprintf(public_path().'/assets/collections/preview/%s', $image_name))->resize(200, 185)->greyscale();//меняем рамер
+            Image::make(sprintf(public_path().'/assets/collections/%s', $image_name))->resize(180, 224)->save();//меняем размер
+            Image::make(sprintf(public_path().'/assets/collections/preview/%s', $image_name))->resize(200, 185)->save();//меняем рамер
             $i_url = $url.'assets/collections/'.$image_name;
             $i_purl = $url.'assets/collections/preview/'.$image_name;
         }
