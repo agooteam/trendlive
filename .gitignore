@@ -6,5 +6,6 @@
 /.cache
 /storage/framework/views
 /public_html/assets/collections/*
-!/public_html/assets/collections/preview
+!/public_html/assets/collections/default_collection.png
 /public_html/assets/collections/preview/*
+!/public_html/assets/collections/preview/default_collection.png

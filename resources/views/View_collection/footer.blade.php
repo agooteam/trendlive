@@ -24,7 +24,10 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+
+<script>document.documentElement.className = "js";</script>
+<script src="/js/jquery-1.9.1.js"></script>
+<script src="/js/jquery.collapse.js"></script>
 
 <script>
     $("#css3-animated-example").collapse({
@@ -39,6 +42,7 @@
         }
     });
 </script>
+
 
 </body>
 </html>

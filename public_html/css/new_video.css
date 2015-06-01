@@ -291,6 +291,23 @@ body {
 	margin:0 0 0 30px;
 }
 
+.block3_content_info{
+    margin:0 ;
+    padding: 0;
+    position: relative;
+    display: block;
+    float: left;
+    width:440px;
+    margin:0 0 30px 0;
+    list-style: decimal;
+}
+.block3_content_info > h3{
+    position:relative;
+    display:block;
+    font-size:18px;
+    font-weight:400;
+    color:#2e2e2e;
+}
 .block3_content_ura {
 	position:relative;
 	display:block;

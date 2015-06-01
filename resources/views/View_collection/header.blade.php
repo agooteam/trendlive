@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>TrendLive - Новая подборка</title>
+    <title>TrendLive - Просмотр подборки</title>
     <link rel="stylesheet" type="text/css" href="/css/view_collection.css">
     <link href='http://fonts.googleapis.com/css?family=Scada:400italic,700italic,400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
@@ -15,4 +15,3 @@
         <div class="menu_punkt" onclick="location.href='/';">Главная</div>
     </div>
 </div>
-<script>document.documentElement.className = "js";</script>

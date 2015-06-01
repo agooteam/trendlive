@@ -185,7 +185,7 @@ class CollectionsController extends Controller {
         $input = $request->all();
         $data = [
             'video_name' => $input['video_name'],
-            'youtube_link' => $input['youtube_link'],
+            'youtube_link' => substr($input['youtube_link'],17,strlen($input['youtube_link'])),
             'collection_id' => $collection_id
         ];
         $video = Video::save_video($data);
@@ -219,7 +219,7 @@ class CollectionsController extends Controller {
         $input = $request->all();
         $data = [
             'video_name' => $input['video_name'],
-            'youtube_link' => $input['youtube_link']
+            'youtube_link' => substr($input['youtube_link'],17,strlen($input['youtube_link']))
         ];
         Video::update_video($video_id,$data);
         return redirect('profile/video/edit/'.$video_id)->with('success','Данные успешно сохранены');

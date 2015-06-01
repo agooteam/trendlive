@@ -19,7 +19,11 @@
             @endif
             @foreach($collections as $collection)
             <div class="catalog_prod">
-                <div class="prod_img"><img src="{{$collection-> image_preview_url}}"/></div>
+                @if($collection -> image_preview_url == null)
+                <div class="prod_img"><img src="/assets/collections/preview/default_collection.png"/></div>
+                @else
+                <div class="prod_img"><img src="{{$collection -> image_preview_url}}"/></div>
+                @endif
                 <div class="prod_info">
                     <div class="prod_header">{{$collection-> collection_name}}</div>
                     <div class="prod_txt">{{$collection-> description}}</div>

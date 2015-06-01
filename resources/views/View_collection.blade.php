@@ -9,7 +9,7 @@
 <div class="left_menu">
     <div class="left_menu_header">Выберите категорию:</div>
     @foreach($categories as $category)
-    @if($category-> id == $collection-> category_id)
+    @if($category-> id == $collection->category_id)
     <div class="left_menu_punkt_active" onclick="location.href='/catalog/{{$category -> id}}';">{{$category -> category_name}}</div>
     @else
     <div class="left_menu_punkt" onclick="location.href='/catalog/{{$category -> id}}';">{{$category -> category_name}}</div>
@@ -18,14 +18,19 @@
 </div>
 <div class="kurs_content">
     <div class="left">
-        <div class="img"><img src="{{$collection -> image_preview_url}}"></div>
-        <div class="l-name">Всего видео: {{$collection-> count_videos}}</div>
+        @if($collection -> image_preview_url == null)
+        <div class="img"><img src="/assets/collections/preview/default_collection.png"/></div>
+        @else
+        <div class="img"><img src="{{$collection -> image_preview_url}}"/></div>
+        @endif
+        <div class="l-name">Всего видео:</div>
+        <div class="number">{{$collection->count_videos}}</div>
     </div>
     <div class="right">
         <div class="head">{{$collection-> collection_name}}</div>
-        <div class="about">Описание:</div>
+        <div class="about">Описание подборки:</div>
         <div class="about_txt">
-            <p>{{$collection-> description}}</p>
+            <p>{{$collection->description}}</p>
         </div>
         <div class="head2">Список видео:</div>
         <div class="lessons">
@@ -34,12 +39,14 @@
                 <h3>{{$video-> video_name}}</h3>
                 <div>
                     <div class="content">
-                        <iframe width="390" height="250" src="{{$video-> youtube_link}}" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="390" height="250" src="https://www.youtube.com/embed/{{$video->youtube_link}}" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
                 @endforeach
             </div>
         </div>
+
+
 
     </div>
 </div>

@@ -37,6 +37,13 @@
                     <div class="ura_head">Видео добавлено</div>
                 </div>
                 @endif
+                <ul class="block3_content_info">
+                    <h3>Как правильно получить ссылку на видео youtube</h3>
+                    <li>Под выбранным видео нажмите на кнопу &laquo; Поделиться &raquo;</li>
+                    <li>Немного ниже вы увидите ссылку в формате<br> &laquo; https://youtu.be/код_видео &raquo;</li>
+                    <li>Выделите ссылку и скопируйте ( Ctrl + C )</li>
+                    <li>Вставьте скопированную ссылку ( Ctrl + V ) в поле <br>&laquo; Ссылка на видео youtube &raquo;</li>
+                </ul>
             </div>
         </div>
 

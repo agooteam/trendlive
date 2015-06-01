@@ -22,7 +22,7 @@ class SaveVideoFormRequest extends Request {
 
     public function CheckYoutubeLink($validator) {
         $validator->extend('check_youtube_link', function($attribute, $value, $parameters) {
-            $result= substr_count( $value , 'youtu');
+            $result= substr_count( $value , 'https://youtu.be/');
             if($result == 0) return false;
             else return true;
         });

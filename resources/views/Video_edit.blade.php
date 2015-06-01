@@ -21,7 +21,7 @@
                     Название видео:</br>
                     <input type="text" name="video_name" class="input" maxlength="100" value="{{$video-> video_name}}"></br>
                     Ссылка на видео youtube :</br>
-                    <input type="text" name="youtube_link" class="input" maxlength="255" value="{{$video-> youtube_link}}">
+                    <input type="text" name="youtube_link" class="input" maxlength="255" value="https://youtu.be/{{$video-> youtube_link}}">
 
                     <div style="margin-top: 20px;">
                         <input type="submit" value="Сохранить" class="btn" />
@@ -41,6 +41,13 @@
                     <div class="ura_head">Видео сохранено</div>
                 </div>
                 @endif
+                <ul class="block3_content_info">
+                    <h3>Как правильно получить ссылку на видео youtube</h3>
+                    <li>Под выбранным видео нажмите на кнопу &laquo; Поделиться &raquo;</li>
+                    <li>Немного ниже вы увидите ссылку в формате<br> &laquo; https://youtu.be/код_видео &raquo;</li>
+                    <li>Выделите ссылку и скопируйте ( Ctrl + C )</li>
+                    <li>Вставьте скопированную ссылку ( Ctrl + V ) в поле <br>&laquo; Ссылка на видео youtube &raquo;</li>
+                </ul>
             </div>
         </div>
 

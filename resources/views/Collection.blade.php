@@ -23,7 +23,11 @@
             @foreach($collections as $collection)
             @if($collection-> count_videos > 0)
             <div class="catalog_prod">
+                @if($collection -> image_preview_url == null)
+                <div class="prod_img"><img src="/assets/collections/preview/default_collection.png"/></div>
+                @else
                 <div class="prod_img"><img src="{{$collection -> image_preview_url}}"/></div>
+                @endif
                 <div class="prod_name">{{$collection -> collection_name}}</div>
                 <div class="prod_btn" onclick="location.href='/collection/view/{{$collection -> id}}';">Подробнее</div>
             </div>
