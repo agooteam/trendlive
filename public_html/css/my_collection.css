@@ -270,6 +270,7 @@ body {
 	font-size:18px;
 	font-weight:400;
 	color:#2b2b2b;
+    width: 100%;
 	margin:0 0 20px 0;
 }
 
@@ -277,6 +278,8 @@ body {
 	position:relative;
 	display:block;
 	float:left;
+    width: 90%;
+    padding-right: 10%;
 	font-size:16px;
 	font-weight:400;
 	font-style:italic;
@@ -407,7 +410,7 @@ body {
     float:right;
     width:326px;
     height:25px;
-    margin:0 0 40px 0;
+    margin-bottom: 40px;
 }
 
 .pag_nav_prev {
@@ -689,4 +692,26 @@ body {
     font-size:16px;
     font-weight:400;
     color:#2e2e2e;
+}
+
+.catalog_none {
+    position:relative;
+    display:block;
+    float:left;
+    width:660px;
+    font-size:16px;
+    color:#2e2e2e;
+}
+
+.catalog_none a {
+    color:#57c5a0;
+    text-decoration:underline;
+}
+
+.catalog_none a:hover {
+    color:#cb5353;
+}
+
+.catalog_none a:active {
+    color:#ae4545;
 }

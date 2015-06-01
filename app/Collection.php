@@ -24,5 +24,9 @@ class Collection extends Model {
         Collection::where('id',$collection_id) -> delete();
     }
 
+    public static function get_my_collection($user_id,$pagination){
+       $collection = Collection::where('user_id',$user_id)->paginate($pagination);
+       return $collection;
+    }
 
 }

@@ -8,66 +8,30 @@
         </div>
         <div class="left_menu">
             <div class="left_menu_header">Профиль</div>
-            <div class="left_menu_punkt_active" onclick="location.href='/profile';">Мои подборки</div>
+            <div class="left_menu_punkt_active" onclick="location.href='/profile/my_collection';">Мои подборки</div>
             <div class="left_menu_punkt" onclick="location.href='/profile/change_password';">Изменить пароль</div>
             <div class="left_menu_punkt_end" onclick="location.href='/profile/logout';">Выход</div>
             <div class="left_menu_punkt_add" onclick="location.href='/profile/new_collection';">Новая подборка</div>
         </div>
         <div class="catalog_content">
+            @if(count($collections) == 0)
+            <div class="catalog_none">Вы еще не создали ни одной подборки видео. <a href="/profile/new_collection">Перейти к созданию.</a></div>
+            @endif
+            @foreach($collections as $collection)
             <div class="catalog_prod">
-                <div class="prod_img"><img src="/img/prod/1.png"/></div>
+                <div class="prod_img"><img src="{{$collection-> image_preview_url}}"/></div>
                 <div class="prod_info">
-                    <div class="prod_header">Ошибочно полагают, что в бедности, часто становятся дл я друзей.  А если будет много текста, то появится дополнительная строка.</div>
-                    <div class="prod_txt">Прошлых ошибок, от чего достигнете. Вознаградить тяжелый труд своих сотрудников, и еще долгое время для них подходящее. Слову сказать, в бизнесе всегда делаем то, что вы хотите быть предпринимателем.</div>
+                    <div class="prod_header">{{$collection-> collection_name}}</div>
+                    <div class="prod_txt">{{$collection-> description}}</div>
                     <div class="prod_btn">
-                        <div class="btn_edit" onclick="location.href='#';">
+                        <div class="btn_edit" onclick="location.href='/profile/collection/edit/{{$collection-> id}}';">
                             Редактировать</div>
-                        <div class="btn_del" onclick="location.href='#';">
-                            Удалить</div>
-                    </div>
-                </div>
-            </div> <div class="catalog_prod">
-                <div class="prod_img"><img src="/img/prod/1.png"/></div>
-                <div class="prod_info">
-                    <div class="prod_header">Ошибочно полагают, что в бедности, часто становятся дл я друзей.  А если будет много текста, то появится дополнительная строка.</div>
-                    <div class="prod_txt">Прошлых ошибок, от чего достигнете. Вознаградить тяжелый труд своих сотрудников, и еще долгое время для них подходящее. Слову сказать, в бизнесе всегда делаем то, что вы хотите быть предпринимателем.</div>
-                    <div class="prod_btn">
-                        <div class="btn_edit" onclick="location.href='#';">
-                            Редактировать</div>
-                        <div class="btn_del" onclick="location.href='#';">
-                            Удалить</div>
-                    </div>
-                </div>
-            </div> <div class="catalog_prod">
-                <div class="prod_img"><img src="/img/prod/1.png"/></div>
-                <div class="prod_info">
-                    <div class="prod_header">Ошибочно полагают, что в бедности, часто становятся дл я друзей.  А если будет много текста, то появится дополнительная строка.</div>
-                    <div class="prod_txt">Прошлых ошибок, от чего достигнете. Вознаградить тяжелый труд своих сотрудников, и еще долгое время для них подходящее. Слову сказать, в бизнесе всегда делаем то, что вы хотите быть предпринимателем.</div>
-                    <div class="prod_btn">
-                        <div class="btn_edit" onclick="location.href='#';">
-                            Редактировать</div>
-                        <div class="btn_del" onclick="location.href='#';">
-                            Удалить</div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
-        <div class="pagination">
-            <div class="pag_nav_prev" onclick="location.href='#';"></div>
-            <div class="pag_nav" onclick="location.href='#';">1</div>
-            <div class="pag_nav" onclick="location.href='#';">2</div>
-            <div class="pag_nav" onclick="location.href='#';">3</div>
-            <div class="pag_nav_active" onclick="location.href='#';">4</div>
-            <div class="pag_nav" onclick="location.href='#';">5</div>
-            <div class="pag_nav" onclick="location.href='#';">...</div>
-            <div class="pag_nav" onclick="location.href='#';">8</div>
-            <div class="pag_nav" onclick="location.href='#';">9</div>
-            <div class="pag_nav" onclick="location.href='#';">10</div>
-            <div class="pag_nav_next" onclick="location.href='#';"></div>
-        </div>
-
-
-
+        @include('pagination.custom', ['paginator' => $collections])
     </div>
 </div>
 

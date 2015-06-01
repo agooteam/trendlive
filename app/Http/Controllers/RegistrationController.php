@@ -13,7 +13,7 @@ use Auth;
 class RegistrationController extends Controller {
 
 	public function index(){//Страница регистрации
-        if(Auth::check()) return redirect('/profile');
+        if(Auth::check()) return redirect('/profile/my_collection');
         return view('Registration');
 	}
 
@@ -43,8 +43,8 @@ class RegistrationController extends Controller {
 
     public function activation($hash){
         $result = User::activation($hash);
-        if($result) return redirect('/profile/login')->with('success','Адрес электронной почты подтвержден. Для входа в профиль используйте данные указанные при регистрации.');
-        else return redirect('/profile/login') -> withErrors('Вы уже подтвердили адрес электронной почты');//Сообщаем об ошибках;
+        if($result) return redirect('/login')->with('success','Адрес электронной почты подтвержден. Для входа в профиль используйте данные указанные при регистрации.');
+        else return redirect('/login') -> withErrors('Вы уже подтвердили адрес электронной почты');//Сообщаем об ошибках;
     }
 
 }

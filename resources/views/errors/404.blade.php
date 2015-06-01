@@ -45,7 +45,7 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">404 ERROR<br><a href="/">Перейти на главную</a></div>
+				<div class="title">Страница не найдена<br><a href="/">Перейти на главную</a></div>
 			</div>
 		</div>
 	</body>

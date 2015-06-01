@@ -17,13 +17,13 @@ use TrendLive\Video;
 class CollectionsController extends Controller {
 
     public static function get_new_collection(){
-        if(!Auth::check()) return redirect('/profile/login');
+        if(!Auth::check()) return redirect('/login');
         $categories = Category::all();
         return  view('New_collection',compact('categories'));
     }
 
     public function post_new_collection(SaveCollectionFormRequest $request ){//сохранение нового курса
-        if(!Auth::check()) return redirect('/profile/login');
+        if(!Auth::check()) return redirect('/login');
         $data = $request->all();
         $collection_name = $data['collection_name'];//получаем название курса
         $description = $data['description'];//получаем описание курса
@@ -54,12 +54,12 @@ class CollectionsController extends Controller {
     }
 
     public function get_collection_edit($collection_id = null){
-        if(!Auth::check()) return redirect('/profile/login');
-        if($collection_id == null) return  redirect('/profile');
+        if(!Auth::check()) return redirect('/login');
+        if($collection_id == null) return  redirect('/profile/my_collection');
         $collection = Collection::get_collection($collection_id);
-        if(!$collection instanceof Collection) return redirect('/profile');
+        if(!$collection instanceof Collection) return redirect('/profile/my_collection');
         $user_id = Auth::user()-> id;// id пользователя
-        if($collection -> user_id != $user_id) return redirect('/profile');
+        if($collection -> user_id != $user_id) return redirect('/profile/my_collection');
         if($collection-> image_url != null && $collection-> image_preview_url == null){//курс впервые редактируется
             $temp_url = $collection-> image_url;//получение временного пути
             $delete_pos = strrpos($temp_url, 'image');//получаем позицию
@@ -98,7 +98,7 @@ class CollectionsController extends Controller {
     }
 
     public function post_collection_edit($collection_id ,SaveCollectionFormRequest $request){
-        if(!Auth::check()) return redirect('/profile/login');
+        if(!Auth::check()) return redirect('/login');
         $data = $request->all();
         $collection_name = $data['collection_name'];//получаем название курса
         $description = $data['description'];//получаем описание курса
@@ -142,6 +142,7 @@ class CollectionsController extends Controller {
     }
 
     public function delete_collection($collection_id){
+        if(!Auth::check()) return redirect('/login');
         $user_id = Auth::user()-> id;
         $collection = Collection::where('id',$collection_id)->get();
         $user_collection = $collection[0]-> user_id;
@@ -162,21 +163,21 @@ class CollectionsController extends Controller {
     }
 
     public function get_new_video($collection_id = null){
-        if(!Auth::check()) return redirect('/profile/login');
-        if($collection_id == null) return  redirect('/profile');
+        if(!Auth::check()) return redirect('/login');
+        if($collection_id == null) return  redirect('/profile/my_collection');
         $collection = Collection::get_collection($collection_id);
-        if(!$collection instanceof Collection) return redirect('/profile');
+        if(!$collection instanceof Collection) return redirect('/profile/my_collection');
         $user_id = Auth::user()-> id;// id пользователя
-        if($collection -> user_id != $user_id) return redirect('/profile');
+        if($collection -> user_id != $user_id) return redirect('/profile/my_collection');
         return view('New_video',compact('collection_id'));
     }
 
     public function post_new_video($collection_id = null,SaveVideoFormRequest $request){
-        if(!Auth::check()) return redirect('/profile/login');
-        if($collection_id == null) return  redirect('/profile');
+        if(!Auth::check()) return redirect('/login');
+        if($collection_id == null) return  redirect('/profile/my_collection');
         $collection = Collection::get_collection($collection_id);
         $user_id = Auth::user()-> id;
-        if($collection -> user_id != $user_id) return redirect('/profile');
+        if($collection -> user_id != $user_id) return redirect('/profile/my_collection');
         $input = $request->all();
         $data = [
             'video_name' => $input['video_name'],
@@ -189,26 +190,26 @@ class CollectionsController extends Controller {
     }
 
     public function get_edit_video($video_id = null){
-        if(!Auth::check()) return redirect('/profile/login');
-        if($video_id == null) return  redirect('/profile');
+        if(!Auth::check()) return redirect('/login');
+        if($video_id == null) return  redirect('/profile/my_collection');
         $video = Video::get_video_by_id($video_id);
-        if(!$video instanceof Video) return redirect('/profile');
+        if(!$video instanceof Video) return redirect('/profile/my_collection');
         $collection_id = $video-> collection_id;
         $collection = Collection::get_collection($collection_id);
         $user_id = Auth::user()-> id;
-        if($collection -> user_id != $user_id) return redirect('/profile');
+        if($collection -> user_id != $user_id) return redirect('/profile/my_collection');
         return view('Video_edit',compact('video','collection_id'));
     }
 
     public function post_edit_video($video_id = null,SaveVideoFormRequest $request){
-        if(!Auth::check()) return redirect('/profile/login');
-        if($video_id == null) return  redirect('/profile');
+        if(!Auth::check()) return redirect('/login');
+        if($video_id == null) return  redirect('/profile/my_collection');
         $video = Video::get_video_by_id($video_id);
-        if(!$video instanceof Video) return redirect('/profile');
+        if(!$video instanceof Video) return redirect('/profile/my_collection');
         $collection_id = $video-> collection_id;
         $collection = Collection::get_collection($collection_id);
         $user_id = Auth::user()-> id;
-        if($collection -> user_id != $user_id) return redirect('/profile');
+        if($collection -> user_id != $user_id) return redirect('/profile/my_collection');
         $input = $request->all();
         $data = [
             'video_name' => $input['video_name'],
@@ -219,14 +220,14 @@ class CollectionsController extends Controller {
     }
 
     public function delete_video($video_id){
-        if(!Auth::check()) return redirect('/profile/login');
-        if($video_id == null) return  redirect('/profile');
+        if(!Auth::check()) return redirect('/login');
+        if($video_id == null) return  redirect('/profile/my_collection');
         $video = Video::get_video_by_id($video_id);
-        if(!$video instanceof Video) return redirect('/profile');
+        if(!$video instanceof Video) return redirect('/profile/my_collection');
         $collection_id = $video-> collection_id;
         $collection = Collection::get_collection($collection_id);
         $user_id = Auth::user()-> id;
-        if($collection -> user_id != $user_id) return redirect('/profile');
+        if($collection -> user_id != $user_id) return redirect('/profile/my_collection');
         Video::delete_video($video_id);
         Collection::update_collection($collection_id,['count_videos' => $collection-> count_videos - 1]);
         return redirect('/profile/collection/edit/'.$collection_id);

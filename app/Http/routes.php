@@ -4,11 +4,11 @@
 Route::get('/', 'IndexController@index');//Главная страница
 Route::get('/activation/{hash}','RegistrationController@activation'); //Активация акканута
 Route::get('/catalog', 'CollectionController@index');//Страница коллекций
-Route::get('/profile','ProfileController@index');//Стартовая страница профиля
+Route::get('/profile/my_collection/{page?}','ProfileController@index');//Стартовая страница профиля
 Route::get('/profile/change_password','ProfileController@get_change_password');//Изменение пароля
 Route::get('/profile/collection/edit/{collection_id?}','CollectionsController@get_collection_edit');//Страница редактирования подборки
-Route::get('/profile/login','ProfileController@get_login');//Страница авторизации пользователя
-Route::get('/profile/logout','ProfileController@logout');//Выход пользователя
+Route::get('/login','ProfileController@get_login');//Страница авторизации пользователя
+Route::get('/logout','ProfileController@logout');//Выход пользователя
 Route::get('/profile/new_collection','CollectionsController@get_new_collection');//Страница создания новой подборки
 Route::get('/profile/new_video/{collection_id?}','CollectionsController@get_new_video');//Страница добавления видео
 Route::get('/profile/video/edit/{video_id?}','CollectionsController@get_edit_video');//Страница редактирования видео

@@ -1,5 +1,6 @@
 <?php namespace TrendLive\Http\Controllers;
 
+use TrendLive\Collection;
 use TrendLive\Http\Requests;
 use TrendLive\Http\Controllers\Controller;
 use Auth;
@@ -15,18 +16,28 @@ use Illuminate\Database\Eloquent\Model;
 class ProfileController extends Controller {
 
     public function index(){//Стартовая страница профиля
-        if(!Auth::check()) return redirect('/profile/login');
-        return view('Profile');
+        $pagination = 1;
+        $page = 1;
+        if(isset($_GET['page'])) $page = $_GET['page'];
+        if(!Auth::check()) return redirect('/login');
+        $collections = Collection::get_my_collection(Auth::user()->id,$pagination);
+        if(($page < 1 || $page > $collections-> lastPage()) ) abort(404);
+        foreach($collections as $collection){
+            $collection-> collection_name = mb_strimwidth($collection-> collection_name, 0, 70, " ...");
+            $collection-> description = mb_strimwidth($collection-> description, 0, 230, " ...");
+        }
+        reset($collections);
+        return view('Profile',compact('collections'));
     }
 
     public function get_login(){//страница авторизации
-        if(Auth::check()) return redirect('/profile');
-        else return view('Login');
+        if(Auth::check()) return redirect('/profile/my_collection');
+        return view('Login');
     }
 
     public function get_recovery_password(){//страница восстановления пароля
-        if(Auth::check()) return redirect('/profile');
-        else return view('Recovery_password');
+        if(Auth::check()) return redirect('/profile/my_collection');
+        return view('Recovery_password');
     }
 
     public  function post_recovery_password(RecoveryPasswordFormRequest $request){//на вход подается чистый запрос
@@ -58,7 +69,7 @@ class ProfileController extends Controller {
             if(isset($data['remember'])) $remember = true; // запоминать пользователя
             $user = User::login($data,$remember);//авторизируемся
             if($user instanceof Model){//пользователь авторизировался
-                return redirect('/profile');
+                return redirect('/profile/my_collection');
             }
             else{//авторизация не удалась
                 return view('Login')->withErrors('Введенные данные не верны, попробуйте заново.');
@@ -72,11 +83,11 @@ class ProfileController extends Controller {
 
     public function logout(){//выход из приложения
         if(Auth::check()) Auth::logout();
-        return redirect('/profile/login');
+        return redirect('/login');
     }
 
     public function get_change_password(){
-        if(!Auth::check()) return redirect('/profile/login');
+        if(!Auth::check()) return redirect('/login');
         return view('Change_password');
     }
 
