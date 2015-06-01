@@ -2,7 +2,7 @@
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
+use Illuminate\Database\Eloquent\ModelNotFoundException as MNFE;
 class Handler extends ExceptionHandler {
 
 	/**
@@ -24,7 +24,9 @@ class Handler extends ExceptionHandler {
 	 */
 	public function report(Exception $e)
 	{
+        if($e instanceof MNFE) abort(404);
 		return parent::report($e);
+
 	}
 
 	/**
@@ -37,6 +39,9 @@ class Handler extends ExceptionHandler {
 	public function render($request, Exception $e)
 	{
 		return parent::render($request, $e);
+
 	}
+
+
 
 }

@@ -1,5 +1,6 @@
 <?php namespace TrendLive\Http\Controllers;
 
+use Illuminate\Support\Facades\URL;
 use TrendLive\Collection;
 use TrendLive\Http\Requests;
 use TrendLive\Http\Controllers\Controller;
@@ -23,7 +24,9 @@ class ProfileController extends Controller {
     public function index(){//Стартовая страница профиля
         $pagination = 6;
         $page = 1;
+        $url =  URL::full();
         if(isset($_GET['page'])) $page = $_GET['page'];
+        else if(substr_count( $url , '?') != 0 ) abort(404);
         if(!Auth::check()) return redirect('/login');
         $collections = Collection::get_my_collection(Auth::user()->id,$pagination);
         if(($page < 1 || $page > $collections-> lastPage()) ) abort(404);

@@ -48,14 +48,13 @@ body {
 }
 
 .block3 {
-	position:relative;
-	width:100%;
-	height:1700px;
-	background: url(../img/bg.png) repeat;
-	margin:0;
-	padding:0;
+    position:relative;
+    width:100%;
+    min-height:550px;
+    background: url(../img/bg.png) repeat;
+    margin:0;
+    padding:0;
 }
-
 .block3_content {
 	position:relative;
 	display:block;
@@ -77,7 +76,8 @@ body {
 	position:relative;
 	display:block;
 	margin:30px auto;
-	width:380px;
+	width:100%;
+    text-align: center;
 	color:#2e2e2e;
 	font-size:54px;
 	font-weight:400;
@@ -88,13 +88,14 @@ body {
 	display:block;
 	float:left;
 	width:250px;
+    padding-bottom: 30px;
 }
 
 .left_menu_header {
 	position:relative;
 	display:block;
 	float:left;
-	width:235px;
+	width:225px;
 	height:39px;
 	background:url(../img/top_menu_bg.png) repeat-x;
 	font-size:18px;
@@ -109,7 +110,7 @@ body {
 	position:relative;
 	display:block;
 	float:left;
-	width:235px;
+	width:225px;
 	height:30px;
 	background:#dddddd;
 	font-size:18px;
@@ -132,7 +133,7 @@ body {
 .left_menu_punkt:active {
 	background:url(../img/bg_left_menu_hover.png) repeat-y;
 	background-position:right;
-	background-color:# B9B9B9;
+	background-color: #B9B9B9;
 	color:#7c7c7c;
 }
 
@@ -141,7 +142,7 @@ body {
 	position:relative;
 	display:block;
 	float:left;
-	width:235px;
+	width:225px;
 	height:30px;
 	background:#cb5353;
 	font-size:18px;
@@ -157,23 +158,43 @@ body {
 .left_menu_punkt_active:hover {
 	color:#ffdddd;
 }
+.category_none {
+    position:relative;
+    display:block;
+    float:left;
+    width:660px;
+    font-size:16px;
+    color:#2e2e2e;
+}
+.category_none a {
+    color:#57c5a0;
+    text-decoration:underline;
+}
 
+.category_none a:hover {
+    color:#cb5353;
+}
+
+.category_none a:active {
+    color:#ae4545;
+}
 .catalog_content {
 	position:relative;
 	display:block;
 	float:left;
-	width:660px;
-	margin:0 0 0 50px;
+	width:690px;
+	margin:0 0 0 20px;
 	padding:0;
 }
 
 .catalog_prod {
-	position:relative;
-	display:block;
-	float:left;
-	width:200px;
-	height:330px;
-	margin:0 30px 40px 0;
+    position:relative;
+    display:block;
+    float:left;
+    width:200px;
+    height:270px;
+    margin-bottom: 30px;
+    padding-right: 30px;
 }
 
 .catalog_prod2 {
@@ -181,60 +202,29 @@ body {
 	display:block;
 	float:left;
 	width:200px;
-	height:330px;
+	height:300px;
 	margin:0 0 40px 0;
 }
 
-.prod_img {
-	position:relative;
-	display:block;
-	float:left;
-	width:200px;
-	height:185px;
-	margin:0;
-}
 
 .prod_name {
 	position:relative;
 	display:block;
 	float:left;
-	width:200px;
+	width:95%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
 	margin:0;
 	font-size:14px;
 	font-weight:400;
-	text-decoration:underline;
+
 	color:#2b2b2b;
-}
-
-.prod_author {
-	position:relative;
-	display:block;
-	float:left;
-	width:200px;
-	margin:5px 0 0 0;
-	font-size:12px;
-	font-weight:400;
-	font-style:italic;
-	color:#808080;
-}
-
-.prod_star {
-	position:relative;
-	display:block;
-	float:left;
-	width:180px;
-	background:url(../img/star.png) no-repeat;
-	font-size:14px;
-	font-weight:400;
-	color:#808080;
-	padding:0 0 0 20px;
-	margin:5px 0 0 0;
 }
 
 .prod_btn {
 	cursor:pointer;
-	position:absolute;
 	display:block;
+    position:  absolute;
 	float:left;
 	width:120px;
 	height:27px;
@@ -244,9 +234,8 @@ body {
 	font-size:18px;
 	font-weight:400;
 	text-decoration:underline;
-	padding:3px 0 0 0;
 	bottom:10px;
-	left:40px;
+    margin-left: 40px;
 }
 
 .prod_btn:hover {
@@ -258,11 +247,12 @@ body {
 }
 
 .pagination {
-	position:relative;
-	display:block;
-	float:right;
-	width:326px;
-	height:25px;
+    position:relative;
+    display:block;
+    float:right;
+    width:326px;
+    height:25px;
+    margin:0 0 40px 0;
 }
 
 .pag_nav_prev {
@@ -345,13 +335,13 @@ body {
 }
 
 .footer {
-	position:relative;
-	display:block;
-	width:100%;
-	height:337px;
-	background:url(../img/footer_bg.png) repeat-x;
-	padding:0;
-	margin:0;
+    position:relative;
+    display:block;
+    width:100%;
+    background:url(../img/footer_bg.png) repeat-x;
+    padding:0;
+    margin:0;
+    clear:both;
 }
 
 .footer_content {

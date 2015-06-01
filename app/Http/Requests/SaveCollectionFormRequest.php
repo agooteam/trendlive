@@ -10,7 +10,7 @@ class SaveCollectionFormRequest extends Request {
     public function rules(){
         return [
             'description' => 'required|max:400',
-            'collection_name' => 'required|max:150',
+            'collection_name' => 'required|max:150|min:50',
             'image' => 'mimes:jpeg,jpg,png| max: 5120',
             'category' => 'required|numeric',
         ];

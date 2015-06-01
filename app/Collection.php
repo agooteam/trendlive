@@ -16,6 +16,11 @@ class Collection extends Model {
         return $collection;
     }
 
+    public static function get_collection_by_category($category_id,$pagination){
+        $collections = Collection::where('category_id',$category_id)-> paginate($pagination);
+        return $collections;
+    }
+
     public static  function update_collection($collection_id,$data){
         Collection::where('id',$collection_id)->update($data);
     }

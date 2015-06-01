@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use TrendLive\Category;
 use TrendLive\Collection;
 use TrendLive\Video;
-
+use Illuminate\Database\Eloquent\Model;
 
 class CollectionsController extends Controller {
 
@@ -54,10 +54,10 @@ class CollectionsController extends Controller {
     }
 
     public function get_collection_edit($collection_id = null){
+        if($collection_id != null && !ctype_digit($collection_id)) abort(404);
         if(!Auth::check()) return redirect('/login');
         if($collection_id == null) return  redirect('/profile/my_collection');
         $collection = Collection::get_collection($collection_id);
-        if(!$collection instanceof Collection) return redirect('/profile/my_collection');
         $user_id = Auth::user()-> id;// id пользователя
         if($collection -> user_id != $user_id) return redirect('/profile/my_collection');
         if($collection-> image_url != null && $collection-> image_preview_url == null){//курс впервые редактируется
@@ -98,6 +98,7 @@ class CollectionsController extends Controller {
     }
 
     public function post_collection_edit($collection_id ,SaveCollectionFormRequest $request){
+        if($collection_id != null && !ctype_digit($collection_id)) abort(404);
         if(!Auth::check()) return redirect('/login');
         $data = $request->all();
         $collection_name = $data['collection_name'];//получаем название курса
@@ -142,6 +143,7 @@ class CollectionsController extends Controller {
     }
 
     public function delete_collection($collection_id){
+        if($collection_id != null && !ctype_digit($collection_id)) abort(404);
         if(!Auth::check()) return redirect('/login');
         $user_id = Auth::user()-> id;
         $collection = Collection::where('id',$collection_id)->get();
@@ -163,6 +165,7 @@ class CollectionsController extends Controller {
     }
 
     public function get_new_video($collection_id = null){
+        if($collection_id != null && !ctype_digit($collection_id)) abort(404);
         if(!Auth::check()) return redirect('/login');
         if($collection_id == null) return  redirect('/profile/my_collection');
         $collection = Collection::get_collection($collection_id);
@@ -173,6 +176,7 @@ class CollectionsController extends Controller {
     }
 
     public function post_new_video($collection_id = null,SaveVideoFormRequest $request){
+        if($collection_id != null && !ctype_digit($collection_id)) abort(404);
         if(!Auth::check()) return redirect('/login');
         if($collection_id == null) return  redirect('/profile/my_collection');
         $collection = Collection::get_collection($collection_id);
@@ -190,6 +194,7 @@ class CollectionsController extends Controller {
     }
 
     public function get_edit_video($video_id = null){
+        if($video_id != null && !ctype_digit($video_id)) abort(404);
         if(!Auth::check()) return redirect('/login');
         if($video_id == null) return  redirect('/profile/my_collection');
         $video = Video::get_video_by_id($video_id);
@@ -202,6 +207,7 @@ class CollectionsController extends Controller {
     }
 
     public function post_edit_video($video_id = null,SaveVideoFormRequest $request){
+        if($video_id != null && !ctype_digit($video_id)) abort(404);
         if(!Auth::check()) return redirect('/login');
         if($video_id == null) return  redirect('/profile/my_collection');
         $video = Video::get_video_by_id($video_id);
@@ -220,6 +226,7 @@ class CollectionsController extends Controller {
     }
 
     public function delete_video($video_id){
+        if($video_id != null && !ctype_digit($video_id)) abort(404);
         if(!Auth::check()) return redirect('/login');
         if($video_id == null) return  redirect('/profile/my_collection');
         $video = Video::get_video_by_id($video_id);

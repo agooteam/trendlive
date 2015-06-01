@@ -3,7 +3,7 @@
 /********************** GET запросы ****************************************************/
 Route::get('/', 'IndexController@index');//Главная страница
 Route::get('/activation/{hash}','RegistrationController@activation'); //Активация акканута
-Route::get('/catalog', 'CollectionController@index');//Страница коллекций
+Route::get('/catalog/{category_id?}', 'CollectionController@index');//Страница коллекций
 Route::get('/profile', 'ProfileController@profile');
 Route::get('/profile/my_collection/{page?}','ProfileController@index');//Стартовая страница профиля
 Route::get('/profile/change_password','ProfileController@get_change_password');//Изменение пароля
