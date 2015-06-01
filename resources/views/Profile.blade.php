@@ -10,7 +10,7 @@
             <div class="left_menu_header">Профиль</div>
             <div class="left_menu_punkt_active" onclick="location.href='/profile/my_collection';">Мои подборки</div>
             <div class="left_menu_punkt" onclick="location.href='/profile/change_password';">Изменить пароль</div>
-            <div class="left_menu_punkt_end" onclick="location.href='/profile/logout';">Выход</div>
+            <div class="left_menu_punkt_end" onclick="location.href='/logout';">Выход</div>
             <div class="left_menu_punkt_add" onclick="location.href='/profile/new_collection';">Новая подборка</div>
         </div>
         <div class="catalog_content">
