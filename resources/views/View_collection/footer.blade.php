@@ -25,9 +25,18 @@
     </div>
 </div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-<script type="text/javascript">
-    $( "#save_button" ).click(function() {
-        $( "#SaveFormRequest" ).submit();
+
+<script>
+    $("#css3-animated-example").collapse({
+        accordion: true,
+        open: function() {
+            this.addClass("open");
+            this.css({ height: this.children().outerHeight() });
+        },
+        close: function() {
+            this.css({ height: "0px" });
+            this.removeClass("open");
+        }
     });
 </script>
 

@@ -5,4 +5,6 @@
 /.ssh
 /.cache
 /storage/framework/views
-/public_html/assets
+/public_html/assets/collections/*
+!/public_html/assets/collections/preview
+/public_html/assets/collections/preview/*

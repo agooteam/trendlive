@@ -5,6 +5,7 @@ use Symfony\Component\HttpFoundation\Request;
 use TrendLive\Category;
 use TrendLive\Collection;
 use TrendLive\Http\Controllers\Controller;
+use TrendLive\Video;
 
 class CollectionController extends Controller {
 
@@ -24,4 +25,14 @@ class CollectionController extends Controller {
         return view('Collection',compact('collections','categories','category_id'));
     }
 
+    public function view_collection($collection_id = null ){
+        if($collection_id != null && !ctype_digit($collection_id)) abort(404);
+        //проверяем существование видео и что в нем есть видео
+        $collection = Collection::get_collection($collection_id);
+        if(!$collection instanceof Collection) abort(404);
+        if(!$collection-> count_videos > 0)return redirect('/catalog/');
+        $videos = Video::get_video($collection_id);
+        $categories = Category::all();
+        return view('View_collection',compact('videos','categories','collection'));
+    }
 }

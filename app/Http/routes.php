@@ -15,7 +15,7 @@ Route::get('/profile/new_video/{collection_id?}','CollectionsController@get_new_
 Route::get('/profile/video/edit/{video_id?}','CollectionsController@get_edit_video');//Страница редактирования видео
 Route::get('/recovery_password','ProfileController@get_recovery_password');//Восстановление пароля
 Route::get('/registration', 'RegistrationController@index');//Страница регистрации
-
+Route::get('/collection/view/{collection_id?}','CollectionController@view_collection');//просмотр видео
 /********************** POST запросы ****************************************************/
 Route::post('/deploy','WHController@pull');//github Webhooks
 Route::post('/recovery_password','ProfileController@post_recovery_password');//Восстановление пароля

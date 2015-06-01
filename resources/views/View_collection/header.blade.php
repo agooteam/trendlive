@@ -15,3 +15,4 @@
         <div class="menu_punkt" onclick="location.href='/';">Главная</div>
     </div>
 </div>
+<script>document.documentElement.className = "js";</script>
