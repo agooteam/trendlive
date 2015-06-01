@@ -15,6 +15,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProfileController extends Controller {
 
+    public function profile(){
+        if(Auth::check()) return redirect('/profile/my_collection');
+        else return redirect('/login');
+    }
+
     public function index(){//Стартовая страница профиля
         $pagination = 1;
         $page = 1;
