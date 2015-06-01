@@ -21,7 +21,7 @@ class ProfileController extends Controller {
     }
 
     public function index(){//Стартовая страница профиля
-        $pagination = 1;
+        $pagination = 6;
         $page = 1;
         if(isset($_GET['page'])) $page = $_GET['page'];
         if(!Auth::check()) return redirect('/login');
