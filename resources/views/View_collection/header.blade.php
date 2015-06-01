@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>TrendLive - Каталог подборок</title>
-    <link rel="stylesheet" type="text/css" href="/css/catalog.css">
+    <title>TrendLive - Новая подборка</title>
+    <link rel="stylesheet" type="text/css" href="/css/view_collection.css">
     <link href='http://fonts.googleapis.com/css?family=Scada:400italic,700italic,400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body>
