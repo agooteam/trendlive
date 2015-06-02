@@ -13,11 +13,11 @@ class AuthController extends Controller {
         $request->all();
         $vk = \OAuth::consumer('Vkontakte');
         if ( !is_null($code)){
-            $token = $vk->requestAccessToken($code); // получаем токен
-            return dd($token->getAccessToken());
-            $param = $token-> getExtraParams();
-            $vk_id = $param['user_id'];
-           return $result = json_decode($vk->request('/method/getProfiles?uid='.$vk_id.'&access_token='.$token), true);
+            $token = $vk->requestAccessToken($code); // получаем ответ
+            $access_token = $token->getAccessToken();//токен access
+            $param = $token-> getExtraParams();//получаем параметры ответа
+            $vk_id = $param['user_id'];//получаем id пользователя
+            return $result = json_decode($vk->request('/method/getProfiles?uid='.$vk_id.'&access_token='.$access_token), true);
 
 
         }
