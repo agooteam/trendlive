@@ -13,7 +13,7 @@ class CollectionController extends Controller {
         if($category_id != null && !ctype_digit($category_id)) abort(404);
         $pagination = 12;
         $page = 1;
-        $url =  URL::full();
+        return $url = Request::url();
         if(isset($_GET['page'])) $page = $_GET['page'];
         else if(substr_count( $url , '?') != 0 ) abort(404);
         if($category_id == null) $category_id = Category::get_first_category_id();
