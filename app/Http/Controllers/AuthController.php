@@ -15,7 +15,7 @@ class AuthController extends Controller {
         if ( !is_null($code)){
             $token = $vk->requestAccessToken($code); // получаем токен
             $param = $token-> getExtraParams();
-            return dd($param);
+            return $vk_id = $param['user_id'];
             $result = json_decode($vk->request('/me'), true);
             $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
             return $message. "<br/>";
