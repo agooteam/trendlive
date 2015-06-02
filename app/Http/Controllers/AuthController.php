@@ -13,7 +13,7 @@ class AuthController extends Controller {
         $request->all();
         $vk = \OAuth::consumer('Vkontakte');
         if ( !is_null($code)){
-            return $token = $vk->requestAccessToken($code); // получаем токен
+            return dd($token = $vk->requestAccessToken($code)); // получаем токен
             $result = json_decode($vk->request('/me'), true);
             $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
             return $message. "<br/>";
