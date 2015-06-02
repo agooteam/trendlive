@@ -15,10 +15,10 @@ class AuthController extends Controller {
         if ( !is_null($code)){
             $token = $vk->requestAccessToken($code); // получаем токен
             $param = $token-> getExtraParams();
-            return $vk_id = $param['user_id'];
-            $result = json_decode($vk->request('/me'), true);
-            $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
-            return $message. "<br/>";
+            $vk_id = $param['user_id'];
+           return $result = json_decode($vk->request('/method/getProfiles?uid='.$vk_id.'&access_token='.$token), true);
+
+
         }
         else{
             $url = $vk->getAuthorizationUri();
