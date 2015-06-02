@@ -9,7 +9,7 @@ class AuthController extends Controller {
 
     public function PostOnWallVk(Request $request){
         $code = $request->get('code');//Получаем код
-        return $request-> all();
+        return $request-> get('access_token');
         $collection_id = $request->get('state');//ID коллекции
         $request->all();
         $vk = \OAuth::consumer('Vkontakte');
