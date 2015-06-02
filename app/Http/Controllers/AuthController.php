@@ -11,7 +11,7 @@ class AuthController extends Controller {
         $code = $request->get('code');//Получаем код
         $collection_id = $request->get('state');//ID коллекции
         $request->all();
-        return Request::url();
+        return $request->url();
         $vk = \OAuth::consumer('Vkontakte');
         if ( !is_null($code)){
             $token = $vk->requestAccessToken($code); // получаем ответ
