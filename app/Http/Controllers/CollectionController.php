@@ -33,6 +33,10 @@ class CollectionController extends Controller {
         if(!$collection-> count_videos > 0)return redirect('/catalog/');
         $videos = Video::get_video($collection_id);
         $categories = Category::all();
-        return view('View_collection',compact('videos','categories','collection'));
+        $vk = array(
+            'ClientID' => $_ENV['VK_ClientID'],
+            'VK_RedirectURL' => $_ENV['VK_RedirectURL']
+        );
+        return view('View_collection',compact('videos','categories','collection','vk'));
     }
 }

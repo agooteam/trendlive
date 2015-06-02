@@ -137,6 +137,7 @@ return [
 		'Illuminate\View\ViewServiceProvider',
         'Collective\Remote\RemoteServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+        'Artdarek\OAuth\OAuthServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -182,6 +183,7 @@ return [
 		'Lang'      => 'Illuminate\Support\Facades\Lang',
 		'Log'       => 'Illuminate\Support\Facades\Log',
 		'Mail'      => 'Illuminate\Support\Facades\Mail',
+        'OAuth'     => 'Artdarek\OAuth\Facade\OAuth',
 		'Password'  => 'Illuminate\Support\Facades\Password',
 		'Queue'     => 'Illuminate\Support\Facades\Queue',
 		'Redirect'  => 'Illuminate\Support\Facades\Redirect',
