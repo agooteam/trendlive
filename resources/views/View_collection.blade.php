@@ -25,7 +25,7 @@
         @endif
         <div class="l-name">Всего видео:</div>
         <div class="number">{{$collection->count_videos}}</div>
-        <div class="number"><br><a href="http://oauth.vk.com/authorize?client_id={{$vk['ClientID']}}&redirect_uri={{$vk['VK_RedirectURL']}}&response_type=code&v=5.33&state={{$collection-> id}}">Поделиться</a></div>
+        <div class="number"><br><a href="http://oauth.vk.com/authorize?client_id={{$vk['ClientID']}}&scope=wall&redirect_uri={{$vk['VK_RedirectURL']}}&display=page&v=5.33&state={{$collection-> id}}&response_type=token">Поделиться</a></div>
     </div>
     <div class="right">
         <div class="head">{{$collection-> collection_name}}</div>
