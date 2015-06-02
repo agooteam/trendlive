@@ -10,10 +10,10 @@ class AuthController extends Controller {
     public function PostOnWallVk(Request $request){
         $code = $request->get('code');//Получаем код
         $collection_id = $request->get('state');//ID коллекции
-        return $request->all();
+        $request->all();
         $vk = \OAuth::consumer('Vkontakte');
         if ( !is_null($code)){
-            $token = $vk->requestAccessToken($code); // получаем токен
+            return $token = $vk->requestAccessToken($code); // получаем токен
             $result = json_decode($vk->request('/me'), true);
             $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
             return $message. "<br/>";
