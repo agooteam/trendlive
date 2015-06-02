@@ -17,7 +17,8 @@ class AuthController extends Controller {
             $access_token = $token->getAccessToken();//токен access
             $param = $token-> getExtraParams();//получаем параметры ответа
             $vk_id = $param['user_id'];//получаем id пользователя
-            return $result = json_decode($vk->request('https://api.vk.com//method/getProfiles?uid='.$vk_id.'&access_token='.$access_token), true);
+            $message = "Hello, my friend";
+            return $result = json_decode($vk->request('https://api.vk.com/method/wall.post?owner_id='.$vk_id.'?message='.$message.'&access_token='.$access_token), true);
 
 
         }
