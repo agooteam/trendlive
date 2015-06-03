@@ -40,7 +40,7 @@
                     Описание (не более 400 символов):</br>
                     <textarea name="description" class="area" maxlength="400">{{$collection->description}}</textarea></br>
                     Выберите категорию:</br>
-                    <select name="category" class="category">
+                    <select name="category" size="5"  class="category">
                         @foreach($categories as $category)
                         @if($category->id == $collection->category_id)
                         <option value="{{$category->id}}" selected >{{$category-> category_name}}</option>

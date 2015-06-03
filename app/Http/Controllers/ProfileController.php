@@ -29,7 +29,7 @@ class ProfileController extends Controller {
         else if(substr_count( $url , '?') != 0 ) abort(404);
         if(!Auth::check()) return redirect('/login');
         $collections = Collection::get_my_collection(Auth::user()->id,$pagination);
-        if(($page < 1 || $page > $collections-> lastPage()) ) abort(404);
+        if(($page < 1 || $page > $collections-> lastPage() && $collections-> total() != 0 ) ) abort(404);
         foreach($collections as $collection){
             $collection-> collection_name = mb_strimwidth($collection-> collection_name, 0, 70, " ...");
             $collection-> description = mb_strimwidth($collection-> description, 0, 230, " ...");

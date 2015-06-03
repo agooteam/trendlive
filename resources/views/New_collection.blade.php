@@ -27,7 +27,7 @@
                     Описание (не более 400 символов):</br>
                     <textarea name="description" class="area" maxlength="400"></textarea></br>
                     Выберите категорию:</br>
-                    <select name="category" class="category">
+                    <select name="category" size="5" class="category">
                         @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->category_name}}</option>
                         @endforeach
