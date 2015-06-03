@@ -1,7 +1,7 @@
 <?php namespace TrendLive;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\DB;
 class Collection extends Model {
     protected $table = 'collections';
     public static $unguarded = true;
@@ -33,5 +33,12 @@ class Collection extends Model {
        $collection = Collection::where('user_id',$user_id)->paginate($pagination);
        return $collection;
     }
+
+
+    public static function get_random_collections($take){
+        $collections = Collection::orderBy(DB::raw('RAND()'))->take($take)->get();
+        return $collections;
+    }
+
 
 }

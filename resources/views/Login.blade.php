@@ -19,8 +19,8 @@
         </div>
         <div class="block3_content_right">
             <div class="head1">Обязательно к прочтению</div>
-            <div class="block3_content_right_txt">Перед входом в профиль убедись что ты подтвердил адрес электронной почты</div>
-            <div class="block3_content_right_txt">Проверь не включен ли Caps Lock</div>
+            <div class="block3_content_right_txt">Перед входом в профиль убедитесь что вы подтвердили адрес электронной почты</div>
+            <div class="block3_content_right_txt">Проверьте не включен ли Caps Lock</div>
             <div class="block3_content_right_txt">Допустимые символы для пароля: кириллица, латиница, цифры.</div>
             @if(count($errors) > 0)
             <div class="block3_content_err">

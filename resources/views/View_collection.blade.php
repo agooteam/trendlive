@@ -4,7 +4,7 @@
 <div class="block3">
 <div class="block3_content">
 <div class="block3_content_header">
-    <div class="block3_content_header_txt">Просмотр подборки</div>
+    <div class="block3_content_header_txt">{{$category_cur_name}}</div>
 </div>
 <div class="left_menu">
     <div class="left_menu_header">Выберите категорию:</div>

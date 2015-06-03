@@ -11,7 +11,7 @@
     <div class="top_menu">
         <div class="logo"></div>
         <div class="menu_punkt" onclick="location.href='/profile';">Профиль</div>
-        <div class="menu_punkt" onclick="location.href='/catalog';">Подборки видео</div>
+        <div class="menu_punkt" onclick="location.href='/catalog';">Коллекции</div>
         <div class="menu_punkt" onclick="location.href='/';">Главная</div>
     </div>
 </div>

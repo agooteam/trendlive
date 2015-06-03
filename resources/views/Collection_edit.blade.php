@@ -4,11 +4,11 @@
 <div class="block3">
     <div class="block3_content">
         <div class="block3_content_header">
-            <div class="block3_content_header_txt">Редактирование подборки</div>
+            <div class="block3_content_header_txt">Редактирование</div>
         </div>
         <div class="left_menu">
             <div class="left_menu_header">Профиль</div>
-            <div class="left_menu_punkt" onclick="location.href='/profile/my_collection';">Мои подборки</div>
+            <div class="left_menu_punkt" onclick="location.href='/profile/my_collection';">Мои коллекции</div>
             <div class="left_menu_punkt" onclick="location.href='/profile/change_password';">Изменить пароль</div>
             <div class="left_menu_punkt_end" onclick="location.href='/logout';">Выход</div>
         </div>

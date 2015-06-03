@@ -12,4 +12,8 @@ class Category extends Model {
         return $category -> id;
     }
 
+    public static function get_name($category_id){
+        $category_name = Category::where('id',$category_id)-> pluck('category_name');
+        return $category_name;
+    }
 }

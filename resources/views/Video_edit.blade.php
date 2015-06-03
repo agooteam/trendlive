@@ -8,12 +8,12 @@
         </div>
         <div class="left_menu">
             <div class="left_menu_header">Профиль</div>
-            <div class="left_menu_punkt" onclick="location.href='/profile/my_collection';">Мои подборки</div>
+            <div class="left_menu_punkt" onclick="location.href='/profile/my_collection';">Мои коллекции</div>
             <div class="left_menu_punkt" onclick="location.href='/profile/change_password';">Изменить пароль</div>
             <div class="left_menu_punkt_end" onclick="location.href='/logout';">Выход</div>
         </div>
         <div class="create_content">
-            <div class="back_btn" onclick="location.href='/profile/collection/edit/{{$collection_id}}';">Вернуться на страницу редактирования подборки</div>
+            <div class="back_btn" onclick="location.href='/profile/collection/edit/{{$collection_id}}';">Вернуться на страницу редактирования коллекции</div>
             <div class="create_right">
 
                 <form action="/profile/video/edit/{{$video-> id}}" method="post">

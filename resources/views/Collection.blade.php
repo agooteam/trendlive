@@ -4,7 +4,7 @@
 <div class="block3">
     <div class="block3_content">
         <div class="block3_content_header">
-            <div class="block3_content_header_txt">Подборки видео</div>
+            <div class="block3_content_header_txt">{{$category_cur_name}}</div>
         </div>
         <div class="left_menu">
             <div class="left_menu_header">Выберите категорию:</div>
@@ -18,7 +18,7 @@
         </div>
         <div class="catalog_content">
             @if(count($collections) == 0)
-            <div class="catalog_none">Для этой категории не найдено подборок. <a href="/profile/new_collection">Перейти к созданию</a></div>
+            <div class="catalog_none">Для этой категории не найдено коллекций. <a href="/profile/new_collection">Перейти к созданию</a></div>
             @endif
             @foreach($collections as $collection)
             @if($collection-> count_videos > 0)

@@ -15,9 +15,9 @@
         </div>
         <div class="block3_content_right">
             <div class="head1">Как восстановить пароль</div>
-            <div class="block3_content_right_txt">Для восстановления пароля введи свой E-mail в форму и нажмите кнопку &laquo; Восстановить &raquo;.</div>
-            <div class="block3_content_right_txt">После чего на твой E-mail будет выслан новый пароль.</div>
-            <div class="block3_content_right_txt">Войди в профиль с новым паролем, если нужно смени пароль на новый.</div>
+            <div class="block3_content_right_txt">Для восстановления пароля введите свой E-mail в форму и нажмите кнопку &laquo; Восстановить &raquo;.</div>
+            <div class="block3_content_right_txt">После чего на ваш E-mail будет выслан новый пароль.</div>
+            <div class="block3_content_right_txt">Войдите в профиль с новым паролем, если нужно смените его на новый.</div>
             @if(count($errors) > 0)
             <div class="block3_content_err">
                 <div class="err_head">Внимание, произошла ошибка!</div>

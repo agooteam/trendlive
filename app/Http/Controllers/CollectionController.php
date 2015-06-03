@@ -22,7 +22,8 @@ class CollectionController extends Controller {
         if($page < 1 || ($page > $collections-> lastPage() && $collections-> lastPage()!=0) ) abort(404);
         foreach($collections as $collection) $collection-> collection_name = mb_strimwidth($collection-> collection_name, 0, 50, "...");
         reset($collections);
-        return view('Collection',compact('collections','categories','category_id'));
+        $category_cur_name = Category::get_name($category_id);
+        return view('Collection',compact('collections','categories','category_id','category_cur_name'));
     }
 
     public function view_collection($collection_id = null ){
@@ -38,6 +39,7 @@ class CollectionController extends Controller {
             'VK_RedirectURL' => $_ENV['VK_RedirectURL'],
             'CURRENT_URL' => $_ENV['URL_CURRENT']
         );
-        return view('View_collection',compact('videos','categories','collection','vk'));
+        $category_cur_name = Category::get_name($collection->category_id);
+        return view('View_collection',compact('videos','categories','collection','vk','category_cur_name'));
     }
 }
