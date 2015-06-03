@@ -39,7 +39,10 @@ class CollectionController extends Controller {
             'VK_RedirectURL' => $_ENV['VK_RedirectURL'],
             'CURRENT_URL' => $_ENV['URL_CURRENT']
         );
+        $share_url_vk = 'http://vk.com/share.php?url='.$_ENV['URL_CURRENT'].'/collection/view/'.$collection_id.'&title='.$collection->collection_name.'&description='.$collection->description.'&image='.$collection->image_preview_url;
+        if($collection->image_preview_url == null)
+            $share_url_vk ='http://vk.com/share.php?url='.$_ENV['URL_CURRENT'].'/collection/view/'.$collection_id.'&title='.$collection->collection_name.'&description='.$collection->description.'&image='.$_ENV['URL_CURRENT'].'/assets/collections/preview/default_collection.png';
         $category_cur_name = Category::get_name($collection->category_id);
-        return view('View_collection',compact('videos','categories','collection','vk','category_cur_name'));
+        return view('View_collection',compact('videos','categories','collection','category_cur_name','share_url_vk'));
     }
 }
