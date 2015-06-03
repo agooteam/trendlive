@@ -35,7 +35,8 @@ class CollectionController extends Controller {
         $categories = Category::all();
         $vk = array(
             'ClientID' => $_ENV['VK_ClientID'],
-            'VK_RedirectURL' => $_ENV['VK_RedirectURL']
+            'VK_RedirectURL' => $_ENV['VK_RedirectURL'],
+            'CURRENT_URL' => $_ENV['URL_CURRENT']
         );
         return view('View_collection',compact('videos','categories','collection','vk'));
     }

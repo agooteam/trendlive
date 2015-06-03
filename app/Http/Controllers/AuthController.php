@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller {
 
-    public function PostOnWallVk($response, Request $request){
-        return $response;
+    public function PostOnWallVk(Request $request){
+
         $code = $request->get('code');//Получаем код
         $collection_id = $request->get('state');//ID коллекции
         $request->all();
