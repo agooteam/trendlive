@@ -4,7 +4,7 @@
 <div class="block3">
     <div class="block3_content">
         <div class="block3_header">Регистрация</div>
-        <div class="lk">Ты уже зарегистрирован? <a href="/profile">Перейти к своему профилю</a></div>
+        <div class="lk">Вы уже зарегистрированы? <a href="/profile">Перейти на страницу профиля.</a></div>
         <div class="block3_content_left">
                 <form role="form" method="POST" action="/registration">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -14,8 +14,8 @@
                 <p>Запомнить меня<input type="checkbox" name="remember" value="ok" class="check"></p>
                 <input type="submit" value="Войти" class="btn" />
             </form>
-            <div class="account">Ты еще не регистрировался? <a href="/registration">Зарегистрироваться</a></div>
-            <div class="account">Забыл пароль? <a href="/recovery_password">Восстановить</a></div>
+            <div class="account">Вы еще не зарегистрировались? <a href="/registration">Зарегистрироваться</a></div>
+            <div class="account">Забыли пароль? <a href="/recovery_password">Восстановить</a></div>
         </div>
         <div class="block3_content_right">
             <div class="head1">Обязательно к прочтению</div>
