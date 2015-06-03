@@ -25,7 +25,7 @@
     </div>
 </div>
 
-
+@include('include.YandexStats')
 
 </body>
 </html>

@@ -89,6 +89,6 @@
         })
     });
 </script>
-
+@include('include.YandexStats')
 </body>
 </html>

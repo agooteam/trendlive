@@ -30,6 +30,6 @@
         $( "#SaveFormRequest" ).submit();
     });
 </script>
-
+@include('include.YandexStats')
 </body>
 </html>
