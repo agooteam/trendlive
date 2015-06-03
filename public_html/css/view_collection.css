@@ -395,7 +395,24 @@ body {
 .tw:hover {
     background:url(../img/social/tw_h.png) no-repeat;
 }
+.vk_button {
+    cursor:pointer;
+    position:relative;
+    display:block;
+    float:left;
+    width:137px;
+    height:40px;
+    background:url(../img/vk_btn.png) no-repeat;
+    margin:7px 0 0 0;
+}
 
+.vk_button:hover {
+    background:url(../img/vk_btn_hover.png) no-repeat;
+}
+
+.vk_button:active {
+    background:url(../img/vk_btn.png) no-repeat;
+}
 .vk {
     cursor:pointer;
     position:relative;

@@ -25,8 +25,7 @@
         @endif
         <div class="l-name">Всего видео:</div>
         <div class="number">{{$collection->count_videos}}</div>
-        <div class="l-name" style="width: 100%;margin-bottom: 10px;"><b>Поделиться с друзьями :</b></div>
-        <div class="vk" onclick="location.href='{{$share_url_vk}}'"></div>
+        <div class="vk_button" onclick="location.href='{{$share_url_vk}}'"></div>
      </div>
     <div class="right">
         <div class="head">{{$collection-> collection_name}}</div>

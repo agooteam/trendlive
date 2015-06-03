@@ -16,7 +16,7 @@
             <div class="profile_content_info">
                 <form class="form" method="post" action="/profile/change_password">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    Новый пароль:<font color="red">*</font></br>
+                    Пароль:<font color="red">*</font></br>
                     <input type="password" name="password" class="input" maxlength="30"></br>
                     Подтверждение пароля:<font color="red">*</font></br>
                     <input type="password" name="re_password" class="input" maxlength="30">

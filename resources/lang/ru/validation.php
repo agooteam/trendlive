@@ -34,7 +34,7 @@ return [
 	"different"            => "The :attribute and :other must be different.",
 	"digits"               => "The :attribute must be :digits digits.",
 	"digits_between"       => "The :attribute must be between :min and :max digits.",
-	"email"                => "The :attribute must be a valid email address.",
+	"email"                => "Введите корректный адрес электронной почты.",
 	"filled"               => "The :attribute field is required.",
 	"exists"               => "The selected :attribute is invalid.",
 	"image"                => "The :attribute must be an image.",
@@ -42,35 +42,35 @@ return [
 	"integer"              => "The :attribute must be an integer.",
 	"ip"                   => "The :attribute must be a valid IP address.",
 	"max"                  => [
-		"numeric" => "The :attribute may not be greater than :max.",
-		"file"    => "The :attribute may not be greater than :max kilobytes.",
-		"string"  => "The :attribute may not be greater than :max characters.",
-		"array"   => "The :attribute may not have more than :max items.",
+        "numeric" => "Поле &laquo;:attribute&raquo; не может содержать более :max цифр.",
+        "file"    => "Поле &laquo;:attribute&raquo; не может содержать более :max килобайт.",
+        "string"  => "Поле &laquo;:attribute&raquo; не может содержать более :max символов.",
+        "array"   => "Поле &laquo;:attribute&raquo; не может содержать более :max элементов",
 	],
-	"mimes"                => "The :attribute must be a file of type: :values.",
+	"mimes"                => "Изображение может быть только следующих типов: :values.",
 	"min"                  => [
-		"numeric" => "The :attribute must be at least :min.",
-		"file"    => "The :attribute must be at least :min kilobytes.",
-		"string"  => "The :attribute must be at least :min characters.",
-		"array"   => "The :attribute must have at least :min items.",
+		"numeric" => "Поле &laquo;:attribute&raquo; не может содержать менее :min цифр.",
+		"file"    => "Поле &laquo;:attribute&raquo; не может содержать менее :min килобайт.",
+		"string"  => "Поле &laquo;:attribute&raquo; не может содержать менее :min символов.",
+		"array"   => "Поле &laquo;:attribute&raquo; не может содержать менее :min элементов",
 	],
 	"not_in"               => "The selected :attribute is invalid.",
-	"numeric"              => "The :attribute must be a number.",
+	"numeric"              => "Поле &laquo;:attribute&raquo; может содержать только цифры.",
 	"regex"                => "The :attribute format is invalid.",
-	"required"             => "The :attribute field is required.",
+	"required"             => "Поле &laquo;:attribute&raquo; обязательно для заполнения.",
 	"required_if"          => "The :attribute field is required when :other is :value.",
 	"required_with"        => "The :attribute field is required when :values is present.",
 	"required_with_all"    => "The :attribute field is required when :values is present.",
 	"required_without"     => "The :attribute field is required when :values is not present.",
 	"required_without_all" => "The :attribute field is required when none of :values are present.",
-	"same"                 => "The :attribute and :other must match.",
+	"same"                 => "Поле &laquo;:attribute&raquo; и поле &laquo;:other&raquo; не совпадают",
 	"size"                 => [
 		"numeric" => "The :attribute must be :size.",
 		"file"    => "The :attribute must be :size kilobytes.",
 		"string"  => "The :attribute must be :size characters.",
 		"array"   => "The :attribute must contain :size items.",
 	],
-	"unique"               => "The :attribute has already been taken.",
+	"unique"               => "Указанный адрес электронной почты уже занят.",
 	"url"                  => "The :attribute format is invalid.",
 	"timezone"             => "The :attribute must be a valid zone.",
 
@@ -90,7 +90,7 @@ return [
 			'rule-name' => 'custom-message',
 		],
 	],
-    'check_youtube_link' => 'Поле &laquo;:attribute&raquo; должно содержать ссылку на видео youtube.com',
+    'check_youtube_link' => 'Поле &laquo;:attribute&raquo; должно содержать ссылку на видео youtube',
 	/*
 	|--------------------------------------------------------------------------
 	| Custom Validation Attributes
@@ -102,6 +102,16 @@ return [
 	|
 	*/
 
-	'attributes' => [],
+	'attributes' => [
+        'password' => 'Пароль',
+        're_password' => 'Подтверждение пароля',
+        'image' => 'Изображение',
+        'collection_name' => 'Название коллекции',
+        'description' => 'Описание',
+        'category' => 'Категория',
+        'email' => 'E-mail',
+        'video_name' => 'Название видео',
+        'youtube_link' => 'Ссылка на видео youtube'
+    ],
 
 ];

@@ -22,7 +22,7 @@
                 </div>
                 <div class="create_right">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    Название (не более 150 символов):</br>
+                    Название коллекции (не более 150 символов):</br>
                     <input type="text" name="collection_name" class="input" maxlength="150"></br>
                     Описание (не более 400 символов):</br>
                     <textarea name="description" class="area" maxlength="400"></textarea></br>

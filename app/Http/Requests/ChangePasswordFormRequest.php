@@ -13,7 +13,7 @@ class ChangePasswordFormRequest extends Request {
     public function rules()
     {
         return [
-            'password' => 'required|min:6|same:re_password',
+            'password' => 'required|min:6|max:30|same:re_password',
             're_password' => 'required'
         ];
     }
