@@ -25,7 +25,7 @@
         @endif
         <div class="l-name">Всего видео:</div>
         <div class="number">{{$collection->count_videos}}</div>
-        <div class="vk" onclick="location.href='http://vk.com/TrendLive'"></div>
+        <div class="vk number" onclick="location.href='http://vk.com/TrendLive'"> Поделиться </div>
         @if($collection -> image_preview_url == null)
         <div class="number"><br><a href="http://vk.com/share.php?url={{$vk['CURRENT_URL']}}/collection/view/{{$collection-> id}}&title={{$collection-> collection_name}}&description={{$collection->description}}&image={{$vk['CURRENT_URL']}}/assets/collections/preview/default_collection.png">Поделиться</a></div>
         @else
