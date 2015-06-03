@@ -16,7 +16,7 @@ Route::get('/profile/video/edit/{video_id?}','CollectionsController@get_edit_vid
 Route::get('/recovery_password','ProfileController@get_recovery_password');//Восстановление пароля
 Route::get('/registration', 'RegistrationController@index');//Страница регистрации
 Route::get('/collection/view/{collection_id?}','CollectionController@view_collection');//просмотр видео
-Route::get('/auth_vk','AuthController@PostOnWallVk');//OAuth vk.com
+Route::get('/auth_vk#{response?}','AuthController@PostOnWallVk');//OAuth vk.com
 /********************** POST запросы ****************************************************/
 Route::post('/deploy','WHController@pull');//github Webhooks
 Route::post('/recovery_password','ProfileController@post_recovery_password');//Восстановление пароля
