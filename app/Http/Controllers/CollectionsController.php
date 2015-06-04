@@ -184,9 +184,15 @@ class CollectionsController extends Controller {
         $user_id = Auth::user()-> id;
         if($collection -> user_id != $user_id) return redirect('/profile/my_collection');
         $input = $request->all();
+        $youtube_link = substr($input['youtube_link'],17,strlen($input['youtube_link']));
+        $search_list_param = substr_count( $youtube_link , '?list=');
+        if($search_list_param > 0){
+            $pos = strrpos($youtube_link, '?list=');
+            $youtube_link = substr($youtube_link,0,$pos);
+        }
         $data = [
             'video_name' => $input['video_name'],
-            'youtube_link' => substr($input['youtube_link'],17,strlen($input['youtube_link'])),
+            'youtube_link' => $youtube_link,
             'collection_id' => $collection_id
         ];
         $video = Video::save_video($data);
@@ -218,9 +224,15 @@ class CollectionsController extends Controller {
         $user_id = Auth::user()-> id;
         if($collection -> user_id != $user_id) return redirect('/profile/my_collection');
         $input = $request->all();
+        $youtube_link = substr($input['youtube_link'],17,strlen($input['youtube_link']));
+        $search_list_param = substr_count( $youtube_link , '?list=');
+        if($search_list_param > 0){
+            $pos = strrpos($youtube_link, '?list=');
+            $youtube_link = substr($youtube_link,0,$pos);
+        }
         $data = [
             'video_name' => $input['video_name'],
-            'youtube_link' => substr($input['youtube_link'],17,strlen($input['youtube_link']))
+            'youtube_link' => $youtube_link
         ];
         Video::update_video($video_id,$data);
         return redirect('profile/video/edit/'.$video_id)->with('success','Данные успешно сохранены');
