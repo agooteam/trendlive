@@ -159,6 +159,7 @@ class CollectionsController extends Controller {
                 File::delete($UploadPathImage.$delete_image_name);
                 File::delete($UploadPathImagePreview.$delete_image_name);
             }
+            Video::delete_collection_video($collection_id);
             Collection::delete_collection($collection_id);
         }
         return redirect('/profile');

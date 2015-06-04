@@ -29,4 +29,8 @@ class Video extends Model {
         Video::where('id',$video_id) -> delete();
     }
 
+    public static function delete_collection_video($collection_id){
+        Video::where('id', $collection_id)->delete();
+    }
+
 }
