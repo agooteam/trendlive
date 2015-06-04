@@ -48,7 +48,11 @@
         <div class="block3_header">Лидеры просмотров</div>
         @foreach($liders as $lider)
         <div class="block3_position1">
-            <div class="block3_position_img"><img src="{{$lider -> image_url}}"></div>
+            @if($lider -> image_url == null)
+            <div class="block3_position_img"><img src="/assets/collections/default_collection.png"/></div>
+            @else
+            <div class="block3_position_img"><img src="{{$lider -> image_url}}"/></div>
+            @endif
             <div class="block3_position_txt">{{$lider-> collection_name}}</div>
             <div class="block3_position_btn" onclick="location.href='{{$url}}/collection/view/{{$lider-> id}}';">Подробнее</div>
         </div>
@@ -61,7 +65,11 @@
         <div class="block4_header">Самое интересное</div>
         @foreach($interesteds as $interested)
         <div class="block3_position1">
-            <div class="block3_position_img"><img src="{{$interested->image_url}}"></div>
+            @if($interested -> image_url == null)
+            <div class="block3_position_img"><img src="/assets/collections/default_collection.png"/></div>
+            @else
+            <div class="block3_position_img"><img src="{{$interested -> image_url}}"/></div>
+            @endif
             <div class="block3_position_txt">{{$interested-> collection_name}}</div>
             <div class="block3_position_btn" onclick="location.href='{{$url}}/collection/view/{{$interested-> id}}';">Подробнее</div>
         </div>
