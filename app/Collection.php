@@ -36,7 +36,7 @@ class Collection extends Model {
 
 
     public static function get_random_collections($take){
-        $collections = Collection::orderBy(DB::raw('RAND()'))->take($take)->get();
+        $collections = Collection::orderBy(DB::raw('RAND()'))->where('count_videos','>',0)->take($take)->get();
         return $collections;
     }
 
