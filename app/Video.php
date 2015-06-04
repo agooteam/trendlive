@@ -30,7 +30,7 @@ class Video extends Model {
     }
 
     public static function delete_collection_video($collection_id){
-        Video::where('id', $collection_id)->delete();
+        Video::where('collection_id', $collection_id)->delete();
     }
 
 }
