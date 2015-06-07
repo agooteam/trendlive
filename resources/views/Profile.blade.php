@@ -27,10 +27,9 @@
                 <div class="prod_info">
                     <div class="prod_header">{{$collection-> collection_name}}</div>
                     <div class="prod_txt">{{$collection-> description}}</div>
-                    <div class="prod_btn">
-                        <div class="btn_edit" onclick="location.href='/profile/collection/edit/{{$collection-> id}}';">
-                            Редактировать</div>
-                    </div>
+                    <div class="btn_edit" onclick="location.href='/profile/collection/edit/{{$collection-> id}}';" style="width: 100%;margin-bottom: 20px;">
+                        Редактировать</div><br>
+                    <div class="prod_btn" onclick="location.href='/collection/view/{{$collection-> id}}';">Подробнее</div>
                 </div>
             </div>
             @endforeach

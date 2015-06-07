@@ -575,6 +575,31 @@ body {
     padding:0 0 0 30px;
 }
 
+.prod_btn {
+    cursor:pointer;
+    position: relative;
+    display:block;
+    float:left;
+    width:120px;
+    height:27px;
+    background:#57c5a0;
+    color:#fff;
+    text-align:center;
+    font-size:18px;
+    font-weight:400;
+    text-decoration:underline;
+    padding:3px 0 0 0;
+    bottom:10px;
+}
+
+.prod_btn:hover {
+    background:#cb5353;
+}
+
+.prod_btn:active {
+    background:#a83939;
+}
+
 .footer_navi:hover {
     color:#57c5a0;
 }
